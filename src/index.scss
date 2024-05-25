@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+// * {
+//   background-color: rgb(0 100 0 / .05) !important;
+// }
+$orange: #fe5b2c;
+$gray: #888;
+$dark: #222227;
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: $dark;
+  // global styles
+  a,
+  button,
+  svg,
+  input,
+  textarea,
+  img {
+    transition: all 0.4s linear;
+  }
+  img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  h6 {
+    font-weight: 600;
+  }
+  p {
+    color: $gray;
+  }
+}
+// 
+.swiper-wrapper{
+  transition-timing-function: linear!important;
+}
+.container-layout{
+  @apply mx-auto 2xl:w-[80%] xl:w-[85%] md:w-[90%] w-[95%] 
+}
