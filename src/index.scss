@@ -7,6 +7,7 @@
 $orange: #fe5b2c;
 $gray: #888;
 $dark: #222227;
+$darkBlue: #2a2c38;
 
 body {
   padding: 0;
@@ -38,11 +39,94 @@ body {
   p {
     color: $gray;
   }
+  input,
+  textarea {
+    font-weight: 600;
+    resize: none;
+    outline: none;
+    border-bottom: 2px solid $gray;
+    color: $darkBlue;
+    background-color:transparent;
+    &:focus {
+      border-color: rgb(72, 72, 255);
+    }
+  }
 }
-// 
-.swiper-wrapper{
-  transition-timing-function: linear!important;
+
+//global style classes
+.swiper-wrapper {
+  transition-timing-function: linear !important;
 }
-.container-layout{
-  @apply mx-auto 2xl:w-[80%] xl:w-[85%] md:w-[90%] w-[95%] 
+//
+.arrow-btn {
+  display: flex;
+  align-items: center;
+  position: relative;
+  a,
+  button {
+    color: #231f20;
+    padding-inline: 10px;
+  }
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-block: auto;
+    height: 100%;
+    width: 1px;
+    background-color: $dark;
+    transition: all 0.4s linear;
+  }
+  &:hover {
+    button,
+    a {
+      color: $orange;
+    }
+    &::before {
+      transform: scaleY(0);
+    }
+    span {
+      transform: translateX(100%);
+      opacity: 1;
+    }
+  }
+}
+//
+.orange-btn {
+  position: relative;
+  width: fit-content;
+  #sliding-bg {
+    background-color: $orange;
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    transition: all 0.5s;
+    left: 0;
+    z-index: 1;
+  }
+  button,
+  a {
+    padding-block: 10px;
+    padding-inline: 20px;
+    border-left: 2px solid $dark;
+    transition: all 0.5s;
+    position: relative;
+    z-index: 2;
+  }
+  &:hover {
+    #sliding-bg {
+      width: 100%;
+    }
+    button,
+    a {
+      border-left: 2px solid $orange;
+      color: white;
+    }
+  }
+}
+//
+.container-layout {
+  @apply mx-auto 2xl:w-[80%] xl:w-[85%] md:w-[90%] w-[95%];
 }

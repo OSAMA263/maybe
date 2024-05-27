@@ -1,22 +1,18 @@
 import tw from "tailwind-styled-components";
 import { team } from "../data";
+import SectionHeader from "../../../components/SectionHeader";
+import ThreeAvatars from "../../../components/ThreeAvatars";
+import { ArrowButton } from "../../../components/Buttons";
 
 export default function TheTeam() {
   return (
     <section className="space-y-20 container-layout" id="the-team">
-      <div className="flex justify-between">
-        <div className="flex gap-20 items-start space-x-6">
-          <span className="ps-4 border-l-4 border-Orange">Testimonial</span>
-          <div className="space-y-4">
-            <h1 className="text-7xl align-baseline">Meet our amazing team</h1>
-            <p className="text-xl">
-              We have 31+ years of servicing consulting advising solutions that
-              make great business.
-            </p>
-          </div>
-        </div>
-        logo
-      </div>
+      <SectionHeader
+        title="Testimonial"
+        header="Meet our amazing team"
+        text="We have 31+ years of servicing consulting advising solutions that
+        make great business."
+      />
       {/* the team cards */}
       <div className="flex justify-between gap-8">
         {team.map((member) => (
@@ -32,7 +28,7 @@ export default function TheTeam() {
             place requesting status updates & interviews. creating a consultancy
             website is a crucial step in establishing
           </p>
-          <button>main button styles</button>
+          <ArrowButton/>
         </div>
       </div>
     </section>
@@ -60,38 +56,6 @@ const Card = ({ name, designation, img }) => {
   );
 };
 
-const ThreeAvatars = ({ borderColor = "white" }) => {
-  return (
-    <div
-      className={`flex items-center ${
-        borderColor === "white" ? "border-white" : "border-[#2a2c38]"
-      }`}
-    >
-      <div className="relative">
-        <img
-          src="/avatar1.png"
-          className="rounded-full border-white border-[6px]"
-          alt="ceo1"
-        />
-      </div>
-      <div className="relative">
-        <img
-          src="/avatar2.png"
-          className="rounded-full border-white border-[6px] z-[2] -translate-x-4"
-          alt="ceo12"
-        />
-      </div>
-      <div className="relative">
-        <img
-          src="/avatar3.png"
-          className="rounded-full border-white border-[6px] z-[3] -translate-x-8"
-          alt="ceo13"
-        />
-      </div>
-      <span className="text-2xl">Join our team</span>
-    </div>
-  );
-};
 
 const CardContainer = tw.div`
 relative

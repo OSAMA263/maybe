@@ -4,6 +4,8 @@ import { EffectFade, Autoplay } from "swiper/modules";
 import tw from "tailwind-styled-components";
 import "swiper/css";
 import "swiper/css/effect-fade";
+import { AutoSlider } from "../../../components/Swipers";
+import React from "react";
 
 export default function SwiperCEO() {
   const swiperPropsCEO = {
@@ -13,19 +15,15 @@ export default function SwiperCEO() {
     modules: [Autoplay, EffectFade],
   };
 
-  const swiperPropsLogos = {
-    slidesPerView: 5,
-    loop: true,
-    speed: 2500,
-    allowTouchMove: false,
-    autoplay: {
-      delay: 1,
-      disableOnInteraction: false,
-    },
-    modules: [Autoplay],
+  const Copm = ({ children }) => {
+    return (
+      <>
+        {/* the children is a div and i want to put a span inside it */}
+      </>
+    );
   };
   return (
-    <section id="sliders" className="bg-Sky py-28 space-y-40">
+    <section id="swiper-images" className="bg-Sky py-28 space-y-40">
       <Swiper {...swiperPropsCEO}>
         {swiperData.map(({ img, role, name, des, rate }) => (
           <SwiperSlide key={name}>
@@ -56,13 +54,7 @@ export default function SwiperCEO() {
       </Swiper>
       {/* auto swiperLogos */}
       <div className="container-layout">
-        <Swiper {...swiperPropsLogos}>
-          {logos.map((img) => (
-            <SwiperSlide key={img}>
-              <img src={img} alt={img} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <AutoSlider array={logos} />
       </div>
     </section>
   );

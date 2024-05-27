@@ -4,6 +4,7 @@ import Home from "./pages/home/page";
 import Header from "./shared/Header";
 import Footer from "./shared/Footer";
 import Layout from "./shared/Layout";
+import SingleBlog from "./pages/blogs/single-blog/page";
 
 function App() {
   const location = useLocation();
@@ -18,6 +19,7 @@ function App() {
             <Route element={<About />} path="/about" />
             <Route element={<Service />} path="/service" />
             <Route element={<Blogs />} path="/blogs" />
+            <Route element={<SingleBlog />} path="/blogs/:id" />
             <Route element={<Contact />} path="/contact" />
           </Routes>
         </Layout>

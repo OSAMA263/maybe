@@ -1,36 +1,37 @@
-import React from "react";
+import { Link } from "react-router-dom";
+import SectionHeader from "../../components/SectionHeader";
+import { blogs } from "./data";
 
 export default function Blogs() {
   return (
-    // <div className="pt-40">
-    //   <div className="relative flex gap-20">
-    //     <div className="sticky top-0 h-fit">
-    //       <h1>something news</h1>
-    //     </div>
-    //     <div className="sticky top-0 h-fit">
-    //       <h1>Latest news jornals</h1>
-    //       <p>
-    //         we offer a wide range of services to help businesses have
-    //         organization address various challengs.
-    //       </p>
-    //     </div>
-    //     <div>
-    //       {Array.from({ length: 20 }).map((_, i) => (
-    //         <BlogCard key={i} />
-    //       ))}
-    //     </div>
-    //   </div>
-    // </div>
-    <SingleBlog />
+    <>
+      <div className="pt-40 container-layout">
+        <div className="relative flex gap-20">
+          <SectionHeader
+            className="sticky top-10 h-fit"
+            title="Something news"
+            header="Latest news journals"
+            text="we offer a wide range of services to help businesses have
+            organization address various challengs."
+          />
+          <div className="space-y-10">
+            {blogs.map((blog) => (
+              <BlogCard key={blog.title} {...blog} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+    </>
   );
 }
 
-const BlogCard = () => {
+const BlogCard = ({title,img}) => {
   return (
-    <div className="flex items-center gap-x-4 border">
+    <Link to="/blogs/1" className="block grid grid-cols-2 gap-6 border">
       {/* card image */}
       <div>
-        <img src="" alt="" />
+        <img src={img} alt={title} />
       </div>
       {/* card details */}
       <div className="space-y-6">
@@ -40,51 +41,10 @@ const BlogCard = () => {
           <span>icon text</span>
         </div>
         <h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde,
-          repellat!
+          {title}
         </h1>
         <button>mainbutton</button>
       </div>
-    </div>
-  );
-};
-const SingleBlog = () => {
-  return (
-    <div className="pt-40 space-y-10">
-      <div>
-        <div className="space-y-14">
-          <h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
-            nobis.
-          </h1>
-          <div className="border-t space-x-4">
-            <span>icons title</span>
-            <span>-</span>
-            <span>icon text</span>
-          </div>
-        </div>
-        <img src="" alt="" />
-      </div>
-      <div className="flex">
-        <img src="" alt="" />
-        <div className="space-y-10">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
-            laudantium? laudantium? laudantium?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Eos, Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Eos, laudantium?
-          </p>
-          <img src="" alt="" />
-
-        </div>
-      </div>
-
-      {/* more blogs */}
-      
-    </div>
+    </Link>
   );
 };

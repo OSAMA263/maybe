@@ -146,7 +146,7 @@ justify-between
 `;
 
 const HeaderWrapper = tw.div`
-flex 
+flex
 gap-16
 [&>span]:min-w-max
 w-[80%]

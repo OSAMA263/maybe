@@ -8,7 +8,9 @@ export default function Header() {
       <Container>
         <div className="flex w-full justify-between items-center">
           <h1>
-            <Link to="/">logo</Link>
+            <Link to="/">
+              <img src="/brand-logo.svg" alt="brand" />
+            </Link>
           </h1>
           <button className="md:hidden">toggle</button>
         </div>
@@ -16,7 +18,9 @@ export default function Header() {
           <NavLinks>
             {navLinks.map(({ name, link }) => (
               <li key={name}>
-                <Link to={link}>{name}</Link>
+                <Link className="hover:text-Orange" to={link}>
+                  <span>{name}</span>
+                </Link>
               </li>
             ))}
           </NavLinks>
@@ -32,13 +36,13 @@ md:flex
 justify-between
 items-center
 w-[80%]
-p-6
-bg-black
-text-white
+py-6
+px-20
+shadow-[0px_0px_20px_20px_#f5f5f5]
 `;
 
 const NavLinks = tw.ul`
 md:flex
 items-center
-gap-x-16
+gap-x-20
 `;
