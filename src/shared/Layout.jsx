@@ -1,4 +1,3 @@
-import React from 'react'
 import tw from 'tailwind-styled-components'
 
 export default function Layout({children}) {
@@ -9,4 +8,5 @@ export default function Layout({children}) {
 
 const Container=tw.div`
 
+pb-28
 `

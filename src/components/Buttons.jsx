@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 function ArrowButton(props) {
-  const { tag = "button", text = "Read More", ...rest } = props;
+  const { tag = "button", text = "Read More", children, ...rest } = props;
   return (
-    <div className="arrow-btn text-lg font-semibold">
+    <div className="arrow-btn font-semibold">
+      {children && children}
       {tag === "a" ? (
         <Link {...rest}>{text}</Link>
       ) : (
@@ -20,7 +21,7 @@ const OrangeButton = (props) => {
   const { tag = "button", text = "Subscribe Now", ...rest } = props;
 
   return (
-    <div className="orange-btn text-lg font-semibold">
+    <div className="orange-btn font-semibold">
       <>
         <div id="sliding-bg"></div>
         {tag === "a" ? (

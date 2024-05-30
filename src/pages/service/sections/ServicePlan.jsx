@@ -1,11 +1,10 @@
-import React from "react";
 import tw from "tailwind-styled-components";
 import { OrangeButton } from "../../../components/Buttons";
 
 export default function ServicePlan(props) {
-  const { title, price, period, features } = props;
+  const { title, price, period, features,className="" } = props;
   return (
-    <Card>
+    <Card className={className}>
       {/* spining img */}
       <img
         src="/logo-dark.svg"

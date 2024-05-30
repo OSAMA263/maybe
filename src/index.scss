@@ -66,6 +66,7 @@ body {
   button {
     color: #231f20;
     padding-inline: 10px;
+    display: block;
   }
   &::before {
     content: "";
@@ -114,6 +115,7 @@ body {
     transition: all 0.5s;
     position: relative;
     z-index: 2;
+    display: block;
   }
   &:hover {
     #sliding-bg {

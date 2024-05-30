@@ -21,7 +21,7 @@ const services = [
   },
 ];
 
-const swiperData = [
+const swiper_data = [
   {
     img: "/about/ceo1.png",
     role: "DAUGTHER",
@@ -79,4 +79,4 @@ const logos = [
   "/about/logo8.png",
   "/about/logo9.png",
 ];
-export { logos, services, team, swiperData };
+export { logos, services, team, swiper_data };

@@ -7,13 +7,13 @@ const services = [
   { img: "/service/service-icon6.png", title: "Solicitory" },
 ];
 const numbers = [
-  { num: 120, title: "Businesses advices given over 30 years" },
-  { num: 170, title: "Businesses guided over thirty years" },
-  { num: 20, title: "Businesses Excellence awards achieved" },
-  { num: 30, title: "Businesses experience form bizmax" },
+  { number: 120, text: "Businesses advices given over 30 years" },
+  { number: 170, text: "Businesses guided over thirty years" },
+  { number: 20, text: "Businesses Excellence awards achieved" },
+  { number: 30, text: "Businesses experience form bizmax" },
 ];
 
-const servicePlan = [
+const service_plan = [
   {
     title: "Personal",
     price: 30.69,
@@ -56,4 +56,28 @@ const servicePlan = [
     ],
   },
 ];
-export { services, numbers, servicePlan };
+
+const swiper_data = [
+  {
+    img: "/service/swiper-client1.png",
+    name: "MF doom",
+    role: "DAUGTHER",
+    des: "Our experience with bizmax easy to solution & consultancy was absolutely fantastic...",
+    rate: 5,
+  },
+  {
+    img: "/service/swiper-client2.png",
+    name: "Annie Blue",
+    role: "CEO @something",
+    des: "Our experience with bizmax easy to solution & consultancy was absolutely fantastic...",
+    rate: 5,
+  },
+  {
+    img: "/service/swiper-client3.png",
+    name: "Sangre",
+    role: "CEO sad stuff",
+    des: "Our experience with bizmax easy to solution & consultancy was absolutely fantastic...",
+    rate: 5,
+  },
+];
+export { services, numbers, service_plan, swiper_data };

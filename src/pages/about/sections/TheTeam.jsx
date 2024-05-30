@@ -28,7 +28,7 @@ export default function TheTeam() {
             place requesting status updates & interviews. creating a consultancy
             website is a crucial step in establishing
           </p>
-          <ArrowButton/>
+          <ArrowButton />
         </div>
       </div>
     </section>
@@ -55,7 +55,6 @@ const Card = ({ name, designation, img }) => {
     </div>
   );
 };
-
 
 const CardContainer = tw.div`
 relative

@@ -1,6 +1,6 @@
 import tw from "tailwind-styled-components";
-import { navLinks } from "./nav-links";
 import { Link } from "react-router-dom";
+import { nav_links } from "./navigation-links";
 
 export default function Header() {
   return (
@@ -16,7 +16,7 @@ export default function Header() {
         </div>
         <nav>
           <NavLinks>
-            {navLinks.map(({ name, link }) => (
+            {nav_links.map(({ name, link }) => (
               <li key={name}>
                 <Link className="hover:text-Orange" to={link}>
                   <span>{name}</span>

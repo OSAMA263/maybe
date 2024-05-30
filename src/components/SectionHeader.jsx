@@ -1,5 +1,5 @@
 export default function SectionHeader(props) {
-  const { title, header, text, className = "" } = props;
+  const { title, header, text, className = "",children } = props;
 
   return (
     <div className={`flex gap-20 text-pretty items-start w-[60%] ${className}`}>
@@ -7,6 +7,7 @@ export default function SectionHeader(props) {
       <div className="space-y-4">
         <h1 className="text-7xl align-baseline">{header}</h1>
         <p className="text-xl">{text}</p>
+        {children&&children}
       </div>
     </div>
   );

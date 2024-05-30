@@ -1,7 +1,8 @@
 import tw from "tailwind-styled-components";
-import { services } from "./data";
-import SwiperCEO from "./sections/Swiper";
+import { logos, services, swiper_data } from "./data";
 import TheTeam from "./sections/TheTeam";
+import { AutoSlider, SwiperImages } from "../../components/Swipers";
+import History from "./sections/History";
 
 export default function About() {
   return (
@@ -66,77 +67,32 @@ const Hero = () => {
   );
 };
 
-const History = () => {
+// auto swipers
+function SwiperCEO() {
   return (
-    <section className="space-y-20 container-layout" id="history">
-      <div className="grid grid-cols-2 text-2xl">
-        <div className="flex justify-between">
-          <h6>
-            <small>___</small> 2023
-          </h6>
-          <h6>something History</h6>
-          <div></div>
-        </div>
-        <div className="space-y-6">
-          <h1>
-            Our something is always getting bigger, but we all work toward one goal
-            to make sales success not be only possible.
-          </h1>
-
-          <p className="!text-base">
-            We have spent 30+ years on servicing and have everything in one
-            place requesting status updates & interviews. Creating a consultancy
-            website is a crucial step in establishing an online presence for
-            your consultancy business. heres a step-by-step guide to help build
-            an effective consultancy website before launching thoroughly test
-            your website for usability & compatibility.
-          </p>
-
-          <p className="!text-base">
-            Once your consultancy website is live continue to refine it based on
-            user feedback changing business needs establishing credibility in
-            your industry.
-          </p>
-        </div>
+    <section id="swiper-images" className="bg-Sky py-28 space-y-40">
+      <div className="container-layout">
+        <SwiperImages
+          quoteImg="/quote1.png"
+          array={swiper_data}
+        >
+          <SwiperContainer></SwiperContainer>
+        </SwiperImages>
       </div>
-      <div className="grid grid-cols-2">
-        <div className="flex gap-2 items-center">
-          <img src="/avatar1.png" className="rounded-full" alt="ceo avatar" />
-          <div>
-            <h4 className="text-2xl">Anidre Blue</h4>
-            <span className="text-Gray">CEO @somthing</span>
-          </div>
-        </div>
-        <div className="text-4xl font-semibold">
-          “Our goal is to build software that gives customer-facing teams at
-          something the ability.
-        </div>
-      </div>
-      <div className="grid grid-cols-2">
-        <div></div>
-        <div className="flex justify-between">
-          {numbersData.map((data) => (
-            <HistoryCounter {...data} key={data.number} />
-          ))}
-        </div>
+      {/* auto swiperLogos */}
+      <div className="container-layout">
+        <AutoSlider array={logos} />
       </div>
     </section>
   );
-};
-
-const HistoryCounter = ({ number, text }) => {
-  return (
-    <div className="space-y-3 relative text-balance">
-      <span className="text-8xl font-semibold relative">
-        <small className="text-3xl rounded-full bg-white px-1 absolute right-0 text-Orange">
-          +
-        </small>
-        {number}
-      </span>
-      <p>{text}</p>
-    </div>
-  );
-};
+}
+const SwiperContainer=tw.div`
+grid
+grid-cols-2
+relative
+[&>div]:border
+[&_img]:rounded-full
+`
 const ServicesWrapper = tw.section`
 w-full
 bg-Sky
@@ -151,8 +107,3 @@ gap-16
 [&>span]:min-w-max
 w-[80%]
 `;
-const numbersData = [
-  { number: 420, text: "Business advice given over 30 years" },
-  { number: 369, text: "Businesses guided over thirty years" },
-  { number: 19, text: "Business Excellence awards achieved" },
-];

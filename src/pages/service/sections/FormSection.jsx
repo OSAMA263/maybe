@@ -6,7 +6,7 @@ export default function FormSection() {
   return (
     <section id="form" className="py-32 bg-Sky">
       <div className="container-layout space-y-20">
-        <h1 className="text-9xl text-center">Get Support?</h1>
+        <h1 className="text-8xl text-center">Get Support?</h1>
         <div className="grid grid-cols-2 items-center">
           {/* three images */}
           <div className="flex h-fit">
@@ -23,17 +23,19 @@ export default function FormSection() {
           <div className="space-y-20">
             <ContactInfo>
               <Link
-                to="tel:+(01)750-660-606"
+                to="tel:+(20)111-666-666-69"
                 className="text-5xl text-Dark-blueish"
               >
-                +(2)011-696-969-6
+                +(20)111-666-666-69
               </Link>
               <div>Mon - Sat: 9 am - 5 pm, Sun: Closed</div>
-              <Link to="mailto:osamaelseify2@gmail.com">supbud@something.com</Link>
-              <div>144 suite avenue, syd, australia</div>
+              <Link to="mailto:osamaelseify2@gmail.com">
+                supbud@something.com
+              </Link>
+              <div>somewhere in the earth</div>
             </ContactInfo>
             {/* form inputs */}
-            <form action="" className="space-y-12 text-xl">
+            <form action="" className="space-y-12 text-lg">
               <div className="grid grid-cols-2 gap-8">
                 <input
                   type="text"
@@ -83,10 +85,10 @@ flex
 flex-col
 gap-2
 font-bold
-text-xl
+text-lg
 text-Gray
-[&>a]:transition-all
-[&>a]:duration-500
+[&>a]:w-fit
+[&>a]:underline
 [&>a:hover]:text-Orange
 `;
 
