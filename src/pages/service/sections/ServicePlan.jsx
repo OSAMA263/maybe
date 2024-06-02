@@ -9,7 +9,7 @@ export default function ServicePlan(props) {
       <img
         src="/logo-dark.svg"
         alt="spining logo"
-        className="top-0 opacity-50 right-0 w-[30%] absolute"
+        className="top-0 opacity-50 right-0 w-[25%] absolute"
       />
       {/* card header */}
       <div className="space-y-1">

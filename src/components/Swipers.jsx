@@ -5,7 +5,7 @@ import React from "react";
 import tw from "tailwind-styled-components";
 import { Link } from "react-router-dom";
 
-function AutoSlider({ array, text }) {
+function AutoSlider({ array, service, text }) {
   const swiperPropsLogos = {
     slidesPerView: 4,
     loop: true,
@@ -22,7 +22,7 @@ function AutoSlider({ array, text }) {
     <Swiper {...swiperPropsLogos}>
       {array.map((img) => (
         <SwiperSlide key={img}>
-          {text ? (
+          {service ? (
             <Link
               target="_blank"
               to="https://www.youtube.com/watch?v=VNv91s6zPT0&list=PL2X8sfba3pG0robKHaL3S30CWye2_QBzW"
@@ -31,6 +31,8 @@ function AutoSlider({ array, text }) {
               <span className="text-4xl">Watch Video</span>
               <img src={img} alt={img} />
             </Link>
+          ) : text ? (
+            <span className="text-5xl inline-block my-2 font-bold">- {img} -</span>
           ) : (
             <img src={img} alt={img} />
           )}
@@ -44,8 +46,8 @@ const SwiperImages = (props) => {
   const { children, array, quoteImg } = props;
 
   const swiperProps = {
-    autoplay: { disableOnInteraction: false, delay: 2000 },
-    loop: true,
+    autoplay: { disableOnInteraction: false, delay: 2500 },
+    loop: true,speed:600,
     modules: [Autoplay],
   };
   return (

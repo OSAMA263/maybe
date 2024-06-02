@@ -7,6 +7,7 @@ import ServicePlan from "./sections/ServicePlan";
 import CountUpNumber from "../../components/CountUpNumber";
 import tw from "tailwind-styled-components";
 import { AutoSlider, SwiperImages } from "../../components/Swipers";
+import { Link } from "react-router-dom";
 
 export default function Service() {
   return (
@@ -29,7 +30,7 @@ export default function Service() {
       <img src="/service/hero-image.png" alt="hero" className="ms-auto" />
       {/* her image */}
       {/* marquee */}
-      <AutoSlider array={array} text />
+      <AutoSlider array={array} service />
       {/* servicese */}
       <ServicesSection />
       {/* couting numbers */}
@@ -65,34 +66,41 @@ export default function Service() {
   );
 }
 
-const ServicesSection = () => {
+export const ServicesSection = ({ homePage }) => {
   return (
     <section
-      className="grid grid-cols-2 gap-10 relative container-layout"
+      className={`grid grid-cols-2 gap-10 relative container-layout ${
+        homePage && "!grid-cols-1 !gap-52"
+      }`}
       id="the-services"
     >
       <SectionHeader
         title="Can we help you"
         header="Consultancy Industry"
         text="We have 31+ year servicing consulting advising solution what make great business."
-        className="sticky top-10 h-fit flex-col gap-8"
+        className={homePage ? "" : "sticky top-10 h-fit flex-col gap-8"}
       />
-      <GridWrapper>
-        {services.map(({ img, title }) => (
+      <GridWrapper className={homePage && "!grid-cols-3"}>
+        {services.map(({ title, img }) => (
           <div className="space-y-8" key={title}>
             <img src={img} alt={title} />
-            <h1 className="text-4xl">{title}</h1>
+            <h1 className="text-4xl">
+              <Link className="hover:text-Orange" to="/service/single-service">
+                {title}
+              </Link>
+            </h1>
             <p>
               We have spent 31+ years servicing consulting & advising solutions
               and learned what makes great businesses stay in business.
             </p>
-            <ArrowButton tag="a" />
+            <ArrowButton tag="a" to="/service/single-service" />
           </div>
         ))}
       </GridWrapper>
     </section>
   );
 };
+
 const GridWrapper = tw.div`
 grid
 grid-cols-2

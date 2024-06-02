@@ -13,11 +13,6 @@ export default {
       animation: {
         "spin-slow": "spin 4s linear infinite",
       },
-      fontSize: {
-        // l: "111px",
-        // m: "23px",
-        // s: "18px",
-      },
     },
   },
   plugins: [],

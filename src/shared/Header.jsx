@@ -1,11 +1,12 @@
 import tw from "tailwind-styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { nav_links } from "./navigation-links";
 
 export default function Header() {
+  const {pathname}=useLocation()
   return (
-    <div className="relative">
-      <Container>
+    <div className="relative z-[6969]">
+      <Container $url={pathname}>
         <div className="flex w-full justify-between items-center">
           <h1>
             <Link to="/">
@@ -31,6 +32,7 @@ export default function Header() {
 }
 
 const Container = tw.header`
+${({$url})=>$url==="/"?"":"shadow-[0px_0px_20px_20px_#f5f5f5]"}
 absolute
 md:flex
 justify-between
@@ -38,7 +40,7 @@ items-center
 w-[80%]
 py-6
 px-20
-shadow-[0px_0px_20px_20px_#f5f5f5]
+bg-white
 `;
 
 const NavLinks = tw.ul`

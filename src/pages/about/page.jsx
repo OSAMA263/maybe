@@ -9,7 +9,7 @@ export default function About() {
     <div className="space-y-40">
       <Hero />
       <History />
-      <SwiperCEO/>
+      <TwoSwipers/>
       <TheTeam/>
     </div>
   );
@@ -68,7 +68,7 @@ const Hero = () => {
 };
 
 // auto swipers
-function SwiperCEO() {
+export function TwoSwipers() {
   return (
     <section id="swiper-images" className="bg-Sky py-28 space-y-40">
       <div className="container-layout">
