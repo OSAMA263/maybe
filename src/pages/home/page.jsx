@@ -1,4 +1,3 @@
-import tw from "tailwind-styled-components";
 import OverlayHero from "./sections/OverlayHero";
 import { OrangeButton } from "../../components/Buttons";
 import { AutoSlider } from "../../components/Swipers";
@@ -6,41 +5,72 @@ import { ServicesSection } from "../service/page";
 import SectionHeader from "../../components/SectionHeader";
 import ServicePlan from "../service/sections/ServicePlan";
 import { service_plan } from "../service/data";
-import TheTeam from "../about/sections/TheTeam";
+import { TheTeamCards } from "../about/sections/TheTeam";
 import { TwoSwipers } from "../about/page";
 import Blogs from "../blogs/page";
 import { autoslider_text, awards_data } from "./data";
 import Accordions from "./sections/Accordion";
+import TwoImgsTeam from "./sections/TwoImgsTeam";
+import { useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { motion } from "framer-motion";
+import { useMediaQuery } from "@chakra-ui/react";
+import RevealElement from "../../components/RevealElement";
 
 export default function Home() {
+  const [SM_DEVICE] = useMediaQuery("(max-width: 1024px)");
+  const ref = useRef();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1 .8"],
+  });
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [SM_DEVICE ? "0%" : "69%", "0%"]
+  );
+
   return (
     <div className="space-y-40">
-      <OverlayHero />
+      <OverlayHero sm_device={SM_DEVICE} />
       {/* text animation scroll section */}
       <div className="bg-Sky space-y-20 py-20">
-        <div className="container-layout grid grid-cols-2">
+        <div className="container-layout lg:grid grid-cols-2 gap-10">
           {/* text animtion */}
           <div></div>
-          <div className="w-1/2 ms-auto space-y-10">
-            <h1>We Know what were doing</h1>
-            <p>
-              <small>
-                We have spent 31+ years of servicing consulting & advising
-                solutions and learned what makes great businesses stay in
-                business.
-              </small>
-            </p>
+          <div className="space-y-10 w-1/2">
+            <RevealElement y>
+              <h1 className="sm:text-4xl">We Know what were doing</h1>
+              <p>
+                <small>
+                  We have spent 31+ years of servicing consulting & advising
+                  solutions and learned what makes great businesses stay in
+                  business.
+                </small>
+              </p>
+            </RevealElement>
           </div>
         </div>
-        <div className="grid grid-cols-2 container-layout">
+        <div className="grid lg:grid-cols-2 container-layout">
           <div className="grid grid-cols-2">
-            <OrangeButton to="/contact" tag="a" text="Join the community" />
-            <OrangeButton to="/about" tag="a" text="Learn more about us" />
+            <RevealElement y>
+              <OrangeButton to="/contact" tag="a" text="Join the community" />
+              <OrangeButton to="/about" tag="a" text="Learn more about us" />
+            </RevealElement>
           </div>
         </div>
-        <div className="flex items-start gap-20 justify-end">
-          <img src="/home/img-left.png" alt="moving image on scorll" />
-          <img src="/home/img-right.png" alt="hero img" />
+        <div
+          ref={ref}
+          className="grid lg:grid-cols-2 justify-items-end gap-10 items-start"
+        >
+          {/* moving image on scroll */}
+          <motion.img
+            className="max-lg:hidden"
+            src="/home/img-left.png"
+            style={{ y }}
+            alt="hero img"
+          />
+          <img src="/home/img-right.png" alt="moving image on scorll" />
         </div>
         <AutoSlider array={autoslider_text} text />
       </div>
@@ -53,17 +83,17 @@ export default function Home() {
             title="Pricing Plan"
             header="Choose our service plan."
             text="We have 31+ years of servicing consulting advising solutions that make great business."
-            className="text-white"
+            className="text-white !w-full"
           />
-          <div className="grid grid-cols-3 gap-20">
+          <div className="grid xl:grid-cols-3 grid-cols-2 2xl:gap-20 gap-10">
             {service_plan.slice(0, 2).map((service) => (
-              <ServicePlan
-                key={service.title}
-                {...service}
-                className="py-16 ps-10"
-              />
+              <RevealElement offset={0.5} x key={service.title}>
+                <ServicePlan {...service} className="py-16 ps-10" />
+              </RevealElement>
             ))}
-            <Accordions />
+            <RevealElement y offset={0.5}>
+              <Accordions />
+            </RevealElement>
           </div>
         </div>
       </div>
@@ -72,7 +102,7 @@ export default function Home() {
         <SectionHeader
           header="Contributing to important global initiatives"
           title="Our Consultancy"
-          className="!gap-10"
+          className="!gap-10 max-2xl:flex-col"
           text="We offer a wide range of services to help business organizations address various challenges, improve processes, make informed decisions, and achieve their goals."
         >
           <p>
@@ -81,37 +111,44 @@ export default function Home() {
           </p>
           <OrangeButton to="/service" tag="a" text="View Moew" />
         </SectionHeader>
-        <div>
+        <RevealElement scale>
           <img src="/home/chart.png" alt="charts" />
-        </div>
+        </RevealElement>
       </div>
       {/* team overlay */}
-      <div className="flex gap-10">
-        <div className="flex justify-between">
-          <span>title</span>
-          <span>title</span>
-          <span>title</span>
-        </div>
-        <img src="/home/team-img1.png" alt="" />
-      </div>
+      <TwoImgsTeam />
       {/* team members */}
-      <TheTeam />
+      <div className="space-y-20 container-layout">
+        <RevealElement>
+          <h1 className="text-4xl text-center">Meet The Team</h1>
+        </RevealElement>
+        <TheTeamCards />
+      </div>
       {/* reviews and autoswiper */}
-      <TwoSwipers />
+      <div className="bg-Sky py-20">
+        <div className="container-layout">
+          <SectionHeader
+            title="Clients"
+            header="What’s our clients say"
+            text="We have 31+ years of servicing consulting advising solutions that make a great business."
+          />
+        </div>
+        <TwoSwipers />
+      </div>
       {/* awards */}
-      <div className="grid grid-cols-2 container-layout">
+      <div className="grid lg:grid-cols-2 gap-8 container-layout">
         <SectionHeader
           title="Our Awards"
           header="Humanitarian award"
           text="We have 31+ years of servicing consulting advising solutions and great business."
-          className="sticky top-10 h-fit "
+          className="lg:sticky top-10 h-fit "
         >
           <OrangeButton tag="a" to="/contact" text="Contact us" />
         </SectionHeader>
         <Awards />
       </div>
       {/* all blogs */}
-      <div className="[&>div]:!pt-0">
+      <div className="[&>div]:!pt-0 py-20 bg-Sky">
         <Blogs />
       </div>
     </div>
@@ -122,18 +159,20 @@ const Awards = () => {
     <div className="divide-y divide-Gray">
       {awards_data.map(({ title, img }, i) => (
         <div className="py-10 flex items-start gap-32" key={i}>
-          <div className="flex gap-6 font-semibold">
-            <small>/0{i + 1}</small>
-            <img src={img} alt={title + i} />
-          </div>
-          <div className="space-y-2">
-            <h1 className="text-2xl">{title}</h1>
-            <p>
-              We offer a wide range of services to help businesses with
-              organizational challenges.
-            </p>
-            <OrangeButton tag="a" to="/about" text="About Us" />
-          </div>
+          <RevealElement y className="overflow-visible">
+            <div className="flex gap-6 font-semibold">
+              <small>/0{i + 1}</small>
+              <img src={img} alt={title + i} />
+            </div>
+            <div className="space-y-2">
+              <h1 className="text-2xl">{title}</h1>
+              <p>
+                We offer a wide range of services to help businesses with
+                organizational challenges.
+              </p>
+              <OrangeButton tag="a" to="/about" text="About Us" />
+            </div>
+          </RevealElement>
         </div>
       ))}
     </div>

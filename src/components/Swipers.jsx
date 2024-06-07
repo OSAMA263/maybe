@@ -7,9 +7,12 @@ import { Link } from "react-router-dom";
 
 function AutoSlider({ array, service, text }) {
   const swiperPropsLogos = {
-    slidesPerView: 4,
+    slidesPerView:
+      array.length <= 4 ? array.length : Math.ceil(array.length / 2) - 1,
     loop: true,
     speed: 2500,
+    centeredSlides: true,
+    spaceBetween: 30,
     allowTouchMove: false,
     autoplay: {
       delay: 1,
@@ -20,21 +23,27 @@ function AutoSlider({ array, service, text }) {
 
   return (
     <Swiper {...swiperPropsLogos}>
-      {array.map((img) => (
-        <SwiperSlide key={img}>
+      {array.map((img, i) => (
+        <SwiperSlide key={"slider" + i}>
           {service ? (
             <Link
+              key={"video" + i}
               target="_blank"
               to="https://www.youtube.com/watch?v=VNv91s6zPT0&list=PL2X8sfba3pG0robKHaL3S30CWye2_QBzW"
-              className="flex items-center gap-10"
+              className="flex items-center gap-10 w-fit" 
             >
-              <span className="text-4xl">Watch Video</span>
-              <img src={img} alt={img} />
+              <span className="font-bold lg:text-4xl text-lg">Watch Video</span>
+              <img src={img} alt={img + i} />
             </Link>
           ) : text ? (
-            <span className="text-5xl inline-block my-2 font-bold">- {img} -</span>
+            <span
+              key={"service" + i}
+              className="2xl:text-5xl lg:text-3xl text-xl inline-block my-2 font-bold"
+            >
+              - {img} -
+            </span>
           ) : (
-            <img src={img} alt={img} />
+            <img src={img} key={"logo" + i} alt={img + i} />
           )}
         </SwiperSlide>
       ))}
@@ -47,8 +56,9 @@ const SwiperImages = (props) => {
 
   const swiperProps = {
     autoplay: { disableOnInteraction: false, delay: 2500 },
-    loop: true,speed:600,
-    modules: [Autoplay],
+    loop: true,
+    speed: 600,
+    // modules: [Autoplay],
   };
   return (
     <Swiper {...swiperProps}>
@@ -59,23 +69,28 @@ const SwiperImages = (props) => {
               children: (
                 <>
                   {child.props.children}
-                  <div className="translate-x-10 rounded-full">
-                    <div className="relative w-fit">
-                      <div className="absolute right-0 top-0 translate-y-1/2">
-                        <img src={quoteImg} alt="quote img" />
-                      </div>
-                      <div className="w-fit overflow-hidden">
+                  {/* seiper img */}
+                  <SlideImg>
+                    <div className="w-fit">
+                      <div className="overflow-hidden relative  w-fit">
                         <img src={img} alt={name} />
+                        <div className="absolute right-0 top-0 translate-y-1/2">
+                          <img src={quoteImg} alt="quote img" />
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </SlideImg>
                   {/* CEOS details and shit about them */}
                   <SlideDetails>
-                    <p className="text-Dark text-4xl">{des}</p>
-                    <span className="text-Gray text-xl block">
-                      {name} - {role}
-                    </span>
-                    <img src="/rate-stars.png" alt="rating shit" />
+                    <div className="space-y-3 w-[80%]">
+                      <p className="text-Dark 2xl:text-3xl  lg:text-lg text-sm">
+                        {des}
+                      </p>
+                      <span className="text-Gray 2xl:text-xl block text-sm">
+                        {name} - {role}
+                      </span>
+                      <img src="/rate-stars.png" alt="rating shit" />
+                    </div>
                   </SlideDetails>
                 </>
               ),
@@ -88,13 +103,23 @@ const SwiperImages = (props) => {
 };
 const SlideDetails = tw.div`
 h-full
-px-24
-py-20
--translate-x-10
+2xl:py-20
+max-lg:py-10
+lg:-translate-x-10
 bg-Sky
 rounded-full
 relative
-space-y-3
+flex
+w-full
+items-center
+justify-center
 `;
-
+const SlideImg = tw.div`
+lg:translate-x-10
+max-lg:w-fit
+max-lg:mx-auto
+rounded-full
+flex 
+items-center
+`;
 export { AutoSlider, SwiperImages };

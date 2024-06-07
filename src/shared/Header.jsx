@@ -1,5 +1,5 @@
 import tw from "tailwind-styled-components";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { nav_links } from "./navigation-links";
 
 export default function Header() {
@@ -19,9 +19,9 @@ export default function Header() {
           <NavLinks>
             {nav_links.map(({ name, link }) => (
               <li key={name}>
-                <Link className="hover:text-Orange" to={link}>
+                <NavLink className="hover:text-Orange" to={link}>
                   <span>{name}</span>
-                </Link>
+                </NavLink>
               </li>
             ))}
           </NavLinks>

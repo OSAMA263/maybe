@@ -3,7 +3,6 @@ import { Route, Routes, useLocation } from "react-router";
 import Home from "./pages/home/page";
 import Header from "./shared/Header";
 import Footer from "./shared/Footer";
-import Layout from "./shared/Layout";
 
 function App() {
   const location = useLocation();
@@ -12,7 +11,6 @@ function App() {
     <>
       <Header />
       <Suspense fallback="loading.,,..,">
-        <Layout>
           <Routes location={location} key={location.pathname}>
             <Route element={<Home />} path="/" />
             <Route element={<About />} path="/about" />
@@ -22,7 +20,6 @@ function App() {
             <Route element={<SingleBlog />} path="/blogs/:id" />
             <Route element={<Contact />} path="/contact" />
           </Routes>
-        </Layout>
       </Suspense>
       <Footer />
     </>

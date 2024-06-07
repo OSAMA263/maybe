@@ -7,16 +7,16 @@ import {
   FaGithub,
   FaLinkedinIn,
 } from "react-icons/fa6";
+import Layout from "../../shared/Layout";
 
 export default function Contact() {
-
   return (
-    <div className="py-48 container-layout grid grid-cols-2 items-center gap-28">
+    <Container>
       {/* form */}
       <Form />
       {/* contact info */}
-      <div className="space-y-20 ">
-        <h1 className="text-7xl flex flex-col">
+      <div className="md:space-y-20 space-y-10">
+        <h1 className="xl:text-7xl text-5xl flex flex-col">
           <span>Let’s Work</span>
           <span className="flex items-center gap-4">
             <small className="h-1 w-[20%] bg-Dark"></small>
@@ -36,13 +36,13 @@ export default function Contact() {
         </ContactLinks>
         <div className="flex gap-4 text-2xl">
           {social_icons.map(({ icon, id }) => (
-            <Link className="hover:text-Orange " to="" key={id}>
+            <Link className="hover:text-Orange" to="" key={id}>
               {icon}
             </Link>
           ))}
         </div>
       </div>
-    </div>
+    </Container>
   );
 }
 
@@ -62,7 +62,7 @@ const Form = () => {
         />
       </div>
       {/* form inputs */}
-      <FormContainer action="">
+      <FormContainer onSubmit={(e) => e.preventDefault()}>
         <div>
           <label htmlFor="name">Enter your name*</label>
           <input type="text" name="name" required id="name" />
@@ -73,17 +73,29 @@ const Form = () => {
         </div>
         <div>
           <label htmlFor="message">Enter your message*</label>
-          <textarea id="message" name="message" required rows={5}></textarea>
+          <textarea id="message" name="message" required rows={3}></textarea>
         </div>
         <OrangeButton
           text="Submit Now"
           type="submit"
-          className="text-xl !px-20 !py-6"
+          className="xl:text-xl xl:!px-20 xl:!py-6"
         />
       </FormContainer>
     </div>
   );
 };
+
+const Container = tw(Layout)`
+container-layout
+flex
+items-center
+lg:gap-28
+gap-16
+[&>div]:flex-1
+[&>div]:w-full
+max-md:flex-col-reverse
+`;
+
 const FormContainer = tw.form`
 space-y-8
 [&>div]:flex

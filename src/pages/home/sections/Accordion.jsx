@@ -8,7 +8,7 @@ import tw from "tailwind-styled-components";
 
 export default function Accordions() {
   return (
-    <Accordion defaultIndex={[0]} className="divide-Gray border-Gray font-bold text-white" allowToggle>
+    <Accordion defaultIndex={[0]} className="divide-Gray border-Gray font-bold text-white max-xl:col-span-2" allowToggle>
       {questions.map((que) => (
         <AccordionItem key={que}>
           {({ isExpanded }) => (

@@ -4,6 +4,7 @@ import { BlogCard, CategoryAndDate } from "../page";
 import SectionHeader from "../../../components/SectionHeader";
 import { OrangeButton } from "../../../components/Buttons";
 import { FaXTwitter, FaFacebookF, FaLinkedinIn } from "react-icons/fa6";
+import Layout from "../../../shared/Layout";
 
 export default function SingleBlog() {
   const { id } = useParams();
@@ -15,14 +16,14 @@ export default function SingleBlog() {
     { id: 3, icon: <FaXTwitter /> },
   ];
   return (
-    <div className="pt-40 space-y-32 container-layout">
-      <div className="space-y-14 flex text-center flex-col items-center">
-        <h1 className="text-6xl text-balance">{title}</h1>
+    <Layout className="container-layout">
+      <div className="md:space-y-14 space-y-4 flex text-center flex-col items-center">
+        <h1 className="md:text-6xl text-4xl text-balance">{title}</h1>
         <CategoryAndDate {...{ category, date }} />
         <img src={img} alt={`blog ${id}`} />
       </div>
       {/* blog content details */}
-      <BlogContentShit />
+      <BlogContentShit id={id} />
       <div className="flex gap-4 w-fit mx-auto px-20 items-center border-t pt-4">
         {socials.map(({ id, icon }) => (
           <button
@@ -35,9 +36,9 @@ export default function SingleBlog() {
       </div>
 
       {/* more blogs */}
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid xl:grid-cols-2 gap-10">
         <SectionHeader
-          className="sticky top-10 h-fit !w-[100%]"
+          className="xl:sticky top-10 h-fit !w-[100%] flex-col"
           title="news stuff idk"
           header="Related blogs journals"
           text="we offer a wide range of services to help businesses have
@@ -51,15 +52,19 @@ export default function SingleBlog() {
           ))}
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 
-const BlogContentShit = () => {
+const BlogContentShit = ({ id }) => {
   return (
-    <div className="flex [&_p]:text-lg items-start gap-10  w-[80%] mx-auto">
-      <img src="/blogs/text-image.png" className="" alt="text image blog" />
-      <div className="space-y-20">
+    <div className="flex [&_p]:text-lg items-start gap-10 sm:w-[80%] mx-auto">
+      <img
+        src="/blogs/text-image.png"
+        className="max-lg:hidden"
+        alt="text image blog"
+      />
+      <div className="sm:space-y-20 space-y-10">
         <p>
           On the Questo mobile app, gamified tours in the cities of
           Belogradchik, Vidin, and Vratsa now take you on a trip to reveal
@@ -76,7 +81,7 @@ const BlogContentShit = () => {
           industrial solutions. These projects have us plenty of interesting
           engineering challenges.
         </p>
-        <img src={blogs[2].img} alt="img" />
+        <img src={id == 1 ? blogs[1].img : blogs[2]} alt="blog img" />
         <p>
           For example, unlike typical indoor products, solar projects are
           designed for outdoor use and must be rugged enough to withstand

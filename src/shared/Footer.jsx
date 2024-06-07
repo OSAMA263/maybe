@@ -19,7 +19,7 @@ export default function Footer() {
             <img src="/brand-logo-white.png" alt="brand" />
           </div>
           <div className="col-span-2">
-            <ThreeAvatars borderColor="[&_img]:border-Dark-blueish" />
+            <ThreeAvatars borderColor="[&_img]:bg-Dark-blueish" />
           </div>
           <h1 className="col-span-2">Have any question?</h1>
           <div>

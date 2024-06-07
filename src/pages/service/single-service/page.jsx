@@ -2,13 +2,14 @@
 import tw from "tailwind-styled-components";
 import { service_plan } from "../data";
 import ServicePlan from "../sections/ServicePlan";
+import Layout from "../../../shared/Layout";
 
 export default function SingleService() {
   return (
     <Container>
-      <section className="space-y-20">
+      <section className="xl:space-y-20 space-y-10">
         <div className="container-layout">
-          <h1 className="!text-6xl w-[80%] text-pretty">
+          <h1 className="lg:!text-6xl w-[80%] text-pretty">
             Organisation Our business consultancy services encompass
           </h1>
         </div>
@@ -20,7 +21,7 @@ export default function SingleService() {
       </section>
       {/*  */}
       <div className="container-layout">
-        <div className="flex gap-20">
+        <div className="flex max-lg:flex-col xl:gap-20 gap-10">
           <p>
             At Sassy Service, we pride ourselves on providing exceptional and
             unforgettable experiences. Our team of dedicated professionals is
@@ -32,8 +33,8 @@ export default function SingleService() {
             aligns with your unique style and preferences.
           </p>
         </div>
-        <div className="flex gap-20">
-          <div className="space-y-10">
+        <div className="flex items-start max-lg:flex-col xl:gap-20 gap-10">
+          <div className="space-y-10 flex-1">
             <div className="space-y-5">
               <h1>Sassy Personal Shopping</h1>
               <p>
@@ -60,10 +61,11 @@ export default function SingleService() {
             </div>
           </div>
           {/* side img */}
+          <div className="flex-1 w-full">
           <img
             src="/service/single-page/single-service2.png"
             alt="side image"
-          />
+          /></div>
         </div>
       </div>
       {/*  */}
@@ -95,7 +97,7 @@ export default function SingleService() {
       </div>
       <section
         id="services-plans"
-        className="container-layout grid grid-cols-3 gap-x-36"
+        className="container-layout grid lg:grid-cols-3 md:grid-cols-2 2xl:gap-x-20 gap-10"
       >
         {service_plan.map((service) => (
           <ServicePlan
@@ -109,15 +111,14 @@ export default function SingleService() {
   );
 }
 
-const Container = tw.div`
-space-y-20
-pt-44
+const Container = tw(Layout)`
 text-pretty
-[&>div]:container-layout
-[&>div]:space-y-20
+[&>div]:xl:space-y-14
+[&>div]:space-y-10
 [&_ul]:list-disc
 [&_ul]:ms-6
 [&_ul]:font-bold
-[&_p]:text-lg
-[&_h1]:text-4xl
+[&_p]:sm:text-lg
+[&_h1]:sm:text-4xl
+[&_h1]:text-xl
 `;

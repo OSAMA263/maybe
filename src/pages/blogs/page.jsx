@@ -3,56 +3,72 @@ import { blogs } from "./data";
 import { OrangeButton } from "../../components/Buttons";
 import { FaRegCalendarAlt, FaRegBookmark } from "react-icons/fa";
 import tw from "tailwind-styled-components";
+import Layout from "../../shared/Layout";
+import RevealElement from "../../components/RevealElement";
+import { Link } from "react-router-dom";
 
 export default function Blogs() {
   return (
-    <>
-      <div className="pt-40 container-layout">
-        <div className="relative grid grid-cols-2 gap-4">
-          <SectionHeader
-            className="sticky top-10 h-fit !w-[100%]"
-            title="Something news"
-            header="Latest news journals"
-            text="we offer a wide range of services to help businesses have
+    <Layout className="container-layout">
+      <div className="relative grid xl:grid-cols-2 xl:gap-4 gap-20">
+        <SectionHeader
+          className="xl:sticky top-10 h-fit !w-[100%]"
+          title="Something news"
+          header="Latest news journals"
+          text="we offer a wide range of services to help businesses have
             organization address various challengs."
-          />
-          <div className="space-y-10">
-            {blogs.map((blog, i) => (
-              <BlogCard key={blog.title} {...blog} i={i} />
-            ))}
-          </div>
+        />
+        <div className="space-y-10">
+          {blogs.map((blog, i) => (
+            <BlogCard key={blog.title} {...blog} i={i} />
+          ))}
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
 
 export const BlogCard = (props) => {
-  const { thumbnail, i, title, ...rest } = props;
+  const { img, i, title, ...rest } = props;
   return (
-    <div className="grid grid-cols-3 gap-10 border">
+    <CardContainer>
       {/* card image */}
-      <div>
-        <img
-          src={thumbnail}
-          className="h-full w-full"
-          width={480}
-          alt={title}
-        />
+      <div className="relative [&_img]:hover:scale-110">
+        <RevealElement
+          scaleY
+          noOpacity
+          childClass="absolute w-full h-full z-10 bg-Sky"
+          className="overflow-visible absolute h-full w-full z-10"
+        >
+          <div></div>
+        </RevealElement>
+        <RevealElement
+          className="h-full !pb-0"
+          childClass="h-full"
+          noOpacity
+          scale
+        >
+          <img src={img} className="h-full w-full" alt={title} />
+        </RevealElement>
       </div>
       {/* card details */}
-      <div className="flex col-span-2 flex-col gap-6 justify-around py-8 px-4">
+      <div className="flex 2xl:col-span-2 flex-col xl:gap-6 gap-10 xl:justify-around py-8 md:px-4 ps-2">
         <CategoryAndDate {...rest} />
-        <h1 className="text-3xl transition-all hover:text-Orange">{title}</h1>
+        <Link
+          to={`/blogs/${i + 1}`}
+          className="md:text-3xl font-semibold text-xl hover:text-Orange"
+        >
+          {title}
+        </Link>
         {/* footer ish */}
         <OrangeButton
           tag="a"
-          to={`/blogs/${i+1}`}
+          to={`/blogs/${i + 1}`}
           text="Read More"
           className="text-base"
         />
       </div>
-    </div>
+    </CardContainer>
   );
 };
 
@@ -71,15 +87,25 @@ export const CategoryAndDate = ({ category, date }) => {
     </CardBody>
   );
 };
+const CardContainer = tw.div`
+grid
+2xl:grid-cols-3
+grid-cols-2
+2xl:gap-10
+border
+rounded-md
+overflow-hidden
+`;
 const CardBody = tw.div`
 border-b
 [&>span]:flex
 [&>span]:items-center
-[&>span]:gap-2
+[&>span]:gap-1
 flex
 items-center
 w-fit
 pb-2
 text-Gray
 gap-3
+max-sm:text-sm
 `;

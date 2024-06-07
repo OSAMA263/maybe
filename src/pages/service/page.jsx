@@ -8,37 +8,56 @@ import CountUpNumber from "../../components/CountUpNumber";
 import tw from "tailwind-styled-components";
 import { AutoSlider, SwiperImages } from "../../components/Swipers";
 import { Link } from "react-router-dom";
+import Layout from "../../shared/Layout";
+import RevealElement from "../../components/RevealElement";
 
 export default function Service() {
   return (
-    <div className="pt-40 space-y-32">
+    <Layout>
       <div className="container-layout">
-        <div className="flex justify-between">
+        <div className="flex max-lg:flex-col gap-10 justify-between">
           <SectionHeader
             title="Services"
             header="What we offer"
-            className="[&_h1]:text-8xl"
+            className="max-lg:flex-col"
             text="Unsere Services Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam suscipit nulla fuga porro, libero voluptas illum nobis impedit officia doloribus! Ipsa quis aspernatur consequatur beatae at explicabo eveniet, architecto culpa."
           />
-          <div className="space-y-4 text-balance">
-            <p>Happy clients have been boost their health</p>
-            <p>4.9 star (2.2k reviews)</p>
-            <ThreeAvatars />
+          <div className="lg:text-xl min-w-[20%]">
+            <RevealElement y>
+              <p>Happy clients have been boost their health</p>
+              <p>4.9 star (2.2k reviews)</p>
+              <ThreeAvatars />
+            </RevealElement>
           </div>
         </div>
       </div>
-      <img src="/service/hero-image.png" alt="hero" className="ms-auto" />
+      <div className="relative">
+        <RevealElement
+          offset={0.2}
+          scaleY
+          noOpacity
+          className="absolute z-10 w-full h-full !pb-0"
+          childClass="absolute bg-white w-full h-full z-10"
+        >
+          <div></div>
+        </RevealElement>
+        <RevealElement className="w-[80%] ms-auto" offset={0.2} scale noOpacity>
+          <img src="/service/hero-image.png" alt="hero" className="w-full" />
+        </RevealElement>
+      </div>
       {/* her image */}
       {/* marquee */}
-      <AutoSlider array={array} service />
+      <RevealElement y rotate={10}>
+        <AutoSlider array={Array(5).fill("/play-icon.png")} service />
+      </RevealElement>
       {/* servicese */}
       <ServicesSection />
       {/* couting numbers */}
       <div className="bg-Dark-blueish py-40">
-        <div className="container-layout flex justify-between gap-x-36">
+        <div className="container-layout flex flex-wrap justify-center gap-20">
           {numbers.map((num) => (
             <CountUpNumber
-              key={num.title}
+              key={num.text}
               {...num}
               className="text-Orange [&>small]:bg-Dark-blueish [&>span]:text-white"
             />
@@ -48,7 +67,7 @@ export default function Service() {
       {/* services plans */}
       <section
         id="services-plans"
-        className="container-layout grid grid-cols-3 gap-x-36"
+        className="container-layout grid lg:grid-cols-3 sm:grid-cols-2 xl:gap-20 gap-8"
       >
         {service_plan.map((service) => (
           <ServicePlan key={service.title} {...service} />
@@ -62,15 +81,15 @@ export default function Service() {
       </div>
       {/* form  */}
       <FormSection />
-    </div>
+    </Layout>
   );
 }
 
 export const ServicesSection = ({ homePage }) => {
   return (
     <section
-      className={`grid grid-cols-2 gap-10 relative container-layout ${
-        homePage && "!grid-cols-1 !gap-52"
+      className={`grid lg:grid-cols-2 gap-10 relative container-layout ${
+        homePage && "!grid-cols-1 !gap-40"
       }`}
       id="the-services"
     >
@@ -78,22 +97,32 @@ export const ServicesSection = ({ homePage }) => {
         title="Can we help you"
         header="Consultancy Industry"
         text="We have 31+ year servicing consulting advising solution what make great business."
-        className={homePage ? "" : "sticky top-10 h-fit flex-col gap-8"}
+        className={
+          homePage
+            ? "!w-full max-sm:flex-col"
+            : "lg:sticky top-10 h-fit flex-col gap-8"
+        }
       />
-      <GridWrapper className={homePage && "!grid-cols-3"}>
+      <GridWrapper className={homePage && "md:!grid-cols-3 "}>
         {services.map(({ title, img }) => (
-          <div className="space-y-8" key={title}>
-            <img src={img} alt={title} />
-            <h1 className="text-4xl">
-              <Link className="hover:text-Orange" to="/service/single-service">
-                {title}
-              </Link>
-            </h1>
-            <p>
-              We have spent 31+ years servicing consulting & advising solutions
-              and learned what makes great businesses stay in business.
-            </p>
-            <ArrowButton tag="a" to="/service/single-service" />
+          <div className="space-y-4 p-6" key={title}>
+            <RevealElement y >
+              <img src={img} alt={title} />
+              <h1 className="xl:text-4xl text-2xl">
+                <Link
+                  className="hover:text-Orange"
+                  to="/service/single-service"
+                >
+                  {title}
+                </Link>
+              </h1>
+              <p>
+                We have spent 31+ years servicing consulting & advising
+                solutions and learned what makes great businesses stay in
+                business.
+              </p>
+              <ArrowButton tag="a" to="/service/single-service" />
+            </RevealElement>
           </div>
         ))}
       </GridWrapper>
@@ -104,7 +133,8 @@ export const ServicesSection = ({ homePage }) => {
 const GridWrapper = tw.div`
 grid
 grid-cols-2
-gap-x-12
+xl:gap-x-12
+sm:gap-x-4
 gap-y-28
 text-pretty
 `;
@@ -112,21 +142,10 @@ text-pretty
 const SwiperWrapper = tw.div`
 flex
 items-end
-gap-20
+sm:gap-20
+gap-10
 [&>div]:bg-white 
 [&>div]:rounded-none 
 [&>:first-child]:w-1/2
 [&>div]:translate-x-0
 `;
-
-const array = [
-  "/play-icon.png",
-  "/play-icon.png",
-  "/play-icon.png",
-  "/play-icon.png",
-  "/play-icon.png",
-  "/play-icon.png",
-  "/play-icon.png",
-  "/play-icon.png",
-  "/play-icon.png",
-];
