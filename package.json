@@ -1,7 +1,6 @@
 {
   "name": "maybe",
   "private": true,
-  "homepage": "https://osama263.github.io/maybe",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
