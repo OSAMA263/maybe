@@ -18,7 +18,7 @@ function App() {
         <Suspense fallback={<Loading />}>
           <Routes location={location} key={location.pathname}>
             <Route element={<NotFound />} path="*" />
-            <Route element={<Home />} path="/" />
+            <Route element={<Home />} path="" />
             <Route element={<About />} path="/about" />
             <Route element={<Service />} path="/service" />
             <Route element={<SingleService />} path="/service/single-service" />
