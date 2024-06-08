@@ -75,7 +75,7 @@ export default function Home() {
           {/* moving image on scroll */}
           <motion.img
             className="max-lg:hidden"
-            src="/home/img-left.png"
+            src="home/img-left.png"
             style={{ y }}
             alt="hero img"
             title="hero img"
@@ -85,7 +85,7 @@ export default function Home() {
               <div></div>
             </RevealElement>
             <RevealElement noOpacity scale offset={0.3}>
-              <img src="/home/img-right.png" alt="moving image on scorll" />
+              <img src="home/img-right.png" alt="moving image on scorll" />
             </RevealElement>
           </div>
         </div>
@@ -131,7 +131,7 @@ export default function Home() {
           <OrangeButton to="/service" tag="a" text="View Moew" />
         </SectionHeader>
         <RevealElement scale offset={0.4}>
-          <img src="/home/chart.png" alt="charts" />
+          <img src="home/chart.png" alt="charts" />
         </RevealElement>
       </div>
       {/* team overlay */}

@@ -19,7 +19,7 @@ export default function Header() {
         <div className="flex w-full justify-between items-center">
           <h1>
             <Link to="/" aria-label="home page">
-              <img src="/brand-logo.svg" alt="brand" />
+              <img src="brand-logo.svg" alt="brand" />
             </Link>
           </h1>
           <button

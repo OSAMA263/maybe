@@ -25,7 +25,7 @@ export default function SingleService() {
           </RevealElement>
           <RevealElement noOpacity scale offset={0.2}>
             <img
-              src="/service/single-page/single-service1.png"
+              src="service/single-page/single-service1.png"
               className="ms-auto"
               alt="hero shi"
             />
@@ -86,7 +86,7 @@ export default function SingleService() {
             </RevealElement>
             <RevealElement noOpacity scale offset={0.3}>
               <img
-                src="/service/single-page/single-service2.png"
+                src="service/single-page/single-service2.png"
                 alt="side image"
                 className="w-full"
               />

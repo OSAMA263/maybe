@@ -90,7 +90,7 @@ const SwiperImages = (props) => {
                       <span className="text-Gray 2xl:text-xl block text-sm">
                         {name} - {role}
                       </span>
-                      <img src="/rate-stars.png" alt="rating shit" />
+                      <img src="rate-stars.png" alt="rating shit" />
                     </div>
                   </SlideDetails>
                 </>

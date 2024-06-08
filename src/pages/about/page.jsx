@@ -57,13 +57,13 @@ const Hero = () => {
               <div></div>
             </RevealElement>
             <RevealElement offset={0.4} scale noOpacity>
-              <img src="/about/hero.png" alt="hero" />
+              <img src="about/hero.png" alt="hero" />
             </RevealElement>
           </div>
         </div>
         {/* ------side image ------- */}
         <div className="h-full me-16 max-lg:hidden">
-          <img src="/about/text-image.png" alt="tet image" />
+          <img src="about/text-image.png" alt="tet image" />
         </div>
       </div>
 

@@ -16,7 +16,7 @@ export default function Footer() {
       <FooterContainer>
         <div>
           <Link to="/">
-            <img src="/brand-logo-white.png" alt="brand" />
+            <img src="brand-logo-white.png" alt="brand" />
           </Link>
           <div className="lg:col-span-2">
             <ThreeAvatars borderColor="[&_img]:bg-Dark-blueish" />

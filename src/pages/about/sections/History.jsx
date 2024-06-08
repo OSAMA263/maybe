@@ -39,7 +39,7 @@ export default function History() {
       <div className="grid lg:grid-cols-2 space-y-10">
         <RevealElement y>
           <div className="flex gap-2 items-center">
-            <img src="/avatar1.png" className="rounded-full" alt="ceo avatar" />
+            <img src="avatar1.png" className="rounded-full" alt="ceo avatar" />
             <div>
               <h4 className="text-2xl">Anidre Blue</h4>
               <span className="text-Gray">CEO @somthing</span>

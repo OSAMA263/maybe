@@ -39,7 +39,7 @@ export default function Service() {
           <div></div>
         </RevealElement>
         <RevealElement className="w-[80%] ms-auto" offset={0.2} scale noOpacity>
-          <img src="/service/hero-image.png" alt="hero" className="w-full" />
+          <img src="service/hero-image.png" alt="hero" className="w-full" />
         </RevealElement>
       </div>
       {/* her image */}

@@ -64,12 +64,12 @@ const Form = () => {
     <div className="space-y-20">
       <div className="relative w-fit">
         <img
-          src="/contact/spining-text.png"
+          src="contact/spining-text.png"
           alt="spining text"
           className="animate-spin-slow"
         />
         <img
-          src="/contact/arrow.png"
+          src="contact/arrow.png"
           alt="arrow"
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />

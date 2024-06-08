@@ -11,7 +11,7 @@ function ArrowButton(props) {
       )}
       {/* ARROW */}
       <span className="-translate-x-full opacity-0 transition-all duration-500">
-        <img src="/arrow.png" alt="arrow" />
+        <img src="arrow.png" alt="arrow" />
       </span>
     </div>
   );

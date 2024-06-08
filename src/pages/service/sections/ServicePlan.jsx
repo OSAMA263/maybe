@@ -9,7 +9,7 @@ export default function ServicePlan(props) {
       <Card className={className}>
         {/* spining img */}
         <img
-          src="/logo-dark.svg"
+          src="logo-dark.svg"
           alt="spining logo"
           className="top-0 opacity-50 right-0 w-[25%] absolute"
         />

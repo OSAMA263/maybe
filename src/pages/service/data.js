@@ -1,10 +1,10 @@
 const services = [
-  { img: "/service/service-icon1.png", title: "Human Resource" },
-  { img: "/service/service-icon2.png", title: "Business Planning" },
-  { img: "/service/service-icon3.png", title: "Organisation" },
-  { img: "/service/service-icon4.png", title: "Startups" },
-  { img: "/service/service-icon5.png", title: "Strategy" },
-  { img: "/service/service-icon6.png", title: "Solicitory" },
+  { img: "service/service-icon1.png", title: "Human Resource" },
+  { img: "service/service-icon2.png", title: "Business Planning" },
+  { img: "service/service-icon3.png", title: "Organisation" },
+  { img: "service/service-icon4.png", title: "Startups" },
+  { img: "service/service-icon5.png", title: "Strategy" },
+  { img: "service/service-icon6.png", title: "Solicitory" },
 ];
 const numbers = [
   { number: 120, text: "Businesses advices given over 30 years" },
@@ -59,21 +59,21 @@ const service_plan = [
 
 const swiper_data = [
   {
-    img: "/service/swiper-client1.png",
+    img: "service/swiper-client1.png",
     name: "MF doom",
     role: "DAUGTHER",
     des: "Our experience with bizmax easy to solution & consultancy was absolutely fantastic...",
     rate: 5,
   },
   {
-    img: "/service/swiper-client2.png",
+    img: "service/swiper-client2.png",
     name: "Annie Blue",
     role: "CEO @something",
     des: "Our experience with bizmax easy to solution & consultancy was absolutely fantastic...",
     rate: 5,
   },
   {
-    img: "/service/swiper-client3.png",
+    img: "service/swiper-client3.png",
     name: "Sangre",
     role: "CEO sad stuff",
     des: "Our experience with bizmax easy to solution & consultancy was absolutely fantastic...",

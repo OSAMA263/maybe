@@ -75,7 +75,7 @@ const BlogContentShit = ({ id }) => {
   return (
     <div className="flex [&_p]:text-lg items-start gap-10 sm:w-[80%] mx-auto">
       <img
-        src="/blogs/text-image.png"
+        src="blogs/text-image.png"
         className="max-lg:hidden"
         alt="text image blog"
       />

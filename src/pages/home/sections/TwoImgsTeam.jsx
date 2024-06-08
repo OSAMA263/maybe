@@ -13,7 +13,7 @@ export default function TwoImgsTeam() {
           </div>
           <div className="relative">
             <img
-              src="/home/team-img2.png"
+              src="home/team-img2.png"
               className="w-full translate-x-10 relative"
               alt="overlay1"
             />
@@ -26,7 +26,7 @@ export default function TwoImgsTeam() {
         <div className="flex max-sm:flex-col">
           <div className="relative mix-blend-multiply">
             <img
-              src="/home/team-img1.png"
+              src="home/team-img1.png"
               className="w-full -translate-x-10"
               alt="overlay2"
             />
