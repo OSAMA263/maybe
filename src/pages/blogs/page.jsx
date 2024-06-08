@@ -9,7 +9,11 @@ import { Link } from "react-router-dom";
 
 export default function Blogs() {
   return (
-    <Layout className="container-layout">
+    <Layout
+      description="blogs Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, fugiat. Eos est harum ullam explicabo, illo consequatur repellat vero illum!"
+      title="Meditate - blogs"
+      className="container-layout"
+    >
       <div className="relative grid xl:grid-cols-2 xl:gap-4 gap-20">
         <SectionHeader
           className="xl:sticky top-10 h-fit !w-[100%]"
@@ -34,12 +38,7 @@ export const BlogCard = (props) => {
     <CardContainer>
       {/* card image */}
       <div className="relative [&_img]:hover:scale-110">
-        <RevealElement
-          scaleY
-          noOpacity
-          childClass="absolute w-full h-full z-10 bg-Sky"
-          className="overflow-visible absolute h-full w-full z-10"
-        >
+        <RevealElement scaleY offset={0.5} noOpacity childClass="bg-Sky">
           <div></div>
         </RevealElement>
         <RevealElement

@@ -3,8 +3,8 @@ import RevealElement from "../../../components/RevealElement";
 
 export default function TwoImgsTeam() {
   return (
-    <div className="container-layout flex justify-center [&_span]:text-2xl">
-      <RevealElement className="overflow-visible pb-0">
+    <div className="max-sm:hidden container-layout flex justify-center [&_span]:text-2xl">
+      <RevealElement offset={.3} className="overflow-visible pb-0">
         <div className="flex max-sm:flex-col">
           <div className="flex flex-col justify-around">
             <span className="ps-16">Startups</span>

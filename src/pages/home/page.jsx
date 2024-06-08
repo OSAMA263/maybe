@@ -16,6 +16,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "@chakra-ui/react";
 import RevealElement from "../../components/RevealElement";
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
   const [SM_DEVICE] = useMediaQuery("(max-width: 1024px)");
@@ -35,9 +36,17 @@ export default function Home() {
       <OverlayHero sm_device={SM_DEVICE} />
       {/* text animation scroll section */}
       <div className="bg-Sky space-y-20 py-20">
-        <div className="container-layout lg:grid grid-cols-2 gap-10">
+        <div className="container-layout grid lg:grid-cols-2 gap-16">
           {/* text animtion */}
-          <div></div>
+          <RevealElement y>
+            <p className="lg:text-3xl sm:text-xl">
+              We believe in power individual contribution the fire at the heart
+              web we back the founder of new form network digital analytics that
+              harness the talent individual for benefit of the collective
+              togethers we're shap world where ownership collaboration
+              innovation thrive beyond traditional boundaries.
+            </p>
+          </RevealElement>
           <div className="space-y-10 w-1/2">
             <RevealElement y>
               <h1 className="sm:text-4xl">We Know what were doing</h1>
@@ -69,8 +78,16 @@ export default function Home() {
             src="/home/img-left.png"
             style={{ y }}
             alt="hero img"
+            title="hero img"
           />
-          <img src="/home/img-right.png" alt="moving image on scorll" />
+          <div className="relative">
+            <RevealElement noOpacity scaleY offset={0.4} childClass="bg-Sky">
+              <div></div>
+            </RevealElement>
+            <RevealElement noOpacity scale offset={0.3}>
+              <img src="/home/img-right.png" alt="moving image on scorll" />
+            </RevealElement>
+          </div>
         </div>
         <AutoSlider array={autoslider_text} text />
       </div>
@@ -85,20 +102,22 @@ export default function Home() {
             text="We have 31+ years of servicing consulting advising solutions that make great business."
             className="text-white !w-full"
           />
-          <div className="grid xl:grid-cols-3 grid-cols-2 2xl:gap-20 gap-10">
+          <div className="grid xl:grid-cols-3 sm:grid-cols-2 2xl:gap-20 gap-10">
             {service_plan.slice(0, 2).map((service) => (
-              <RevealElement offset={0.5} x key={service.title}>
-                <ServicePlan {...service} className="py-16 ps-10" />
-              </RevealElement>
+              <ServicePlan
+                {...service}
+                key={service.title}
+                className="py-16 ps-10"
+              />
             ))}
-            <RevealElement y offset={0.5}>
+            <RevealElement y offset={0.2}>
               <Accordions />
             </RevealElement>
           </div>
         </div>
       </div>
       {/* charts */}
-      <div className="flex items-center gap-24 justify-between container-layout">
+      <div className="flex items-center gap-24 justify-between container-layout max-lg:flex-col">
         <SectionHeader
           header="Contributing to important global initiatives"
           title="Our Consultancy"
@@ -111,7 +130,7 @@ export default function Home() {
           </p>
           <OrangeButton to="/service" tag="a" text="View Moew" />
         </SectionHeader>
-        <RevealElement scale>
+        <RevealElement scale offset={0.4}>
           <img src="/home/chart.png" alt="charts" />
         </RevealElement>
       </div>
@@ -151,6 +170,14 @@ export default function Home() {
       <div className="[&>div]:!pt-0 py-20 bg-Sky">
         <Blogs />
       </div>
+      <Helmet>
+        <title>Meditate</title>
+        <meta
+          name="description"
+          content="base Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, iure optio error temporibus numquam nobis laudantium maxime minus dolorem nisi."
+        />
+        <link rel="canonical" href={window.location.href} />
+      </Helmet>
     </div>
   );
 }

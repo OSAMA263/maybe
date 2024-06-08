@@ -5,7 +5,7 @@ import RevealElement from "../../../components/RevealElement";
 export default function ServicePlan(props) {
   const { title, price, period, features, className = "" } = props;
   return (
-    <RevealElement x offset={0.5}>
+    <RevealElement x offset={0.2}>
       <Card className={className}>
         {/* spining img */}
         <img

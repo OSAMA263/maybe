@@ -29,6 +29,7 @@ function AutoSlider({ array, service, text }) {
             <Link
               key={"video" + i}
               target="_blank"
+              aria-label="link video"
               to="https://www.youtube.com/watch?v=VNv91s6zPT0&list=PL2X8sfba3pG0robKHaL3S30CWye2_QBzW"
               className="flex items-center gap-10 w-fit" 
             >
@@ -58,7 +59,7 @@ const SwiperImages = (props) => {
     autoplay: { disableOnInteraction: false, delay: 2500 },
     loop: true,
     speed: 600,
-    // modules: [Autoplay],
+    modules: [Autoplay],
   };
   return (
     <Swiper {...swiperProps}>

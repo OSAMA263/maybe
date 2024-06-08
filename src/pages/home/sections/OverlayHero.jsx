@@ -4,7 +4,7 @@ import RevealElement from "../../../components/RevealElement";
 
 export default function OverlayHero({ sm_device }) {
   return (
-    <div className="h-dvh bg-[url('/home/hero.png')] relative">
+    <div className="h-dvh bg-[url('/home/hero.png')] bg-no-repeat bg-center relative">
       <div className="absolute z-[1] w-full h-full bg-[#0c2754] bg-opacity-55">
         <OverlayGridBorders $sm_device={sm_device}>
           {Array.from({ length: 4 }).map((_, i) => (

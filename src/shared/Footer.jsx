@@ -15,24 +15,27 @@ export default function Footer() {
     <div className="bg-Dark-blueish pt-12">
       <FooterContainer>
         <div>
-          <div>
+          <Link to="/">
             <img src="/brand-logo-white.png" alt="brand" />
-          </div>
-          <div className="col-span-2">
+          </Link>
+          <div className="lg:col-span-2">
             <ThreeAvatars borderColor="[&_img]:bg-Dark-blueish" />
           </div>
-          <h1 className="col-span-2">Have any question?</h1>
-          <div>
+          <h1 className="lg:col-span-2">Have any question?</h1>
+          <div className="max-lg:text-center">
             <button className="text-xl font-semibold">Live chat now</button>
           </div>
         </div>
-        {/* the bootom row */}
-        <div className="row-span-2">
+        {/* the second row */}
+        <div className="row-span-2 max-lg:gap-6 [&>div]:max-lg:col-span-2 [&>div]:max-lg:grid [&>div]:max-lg:grid-cols-2">
           <div className="space-y-4">
-            <h1>About us</h1>
-            <p>
-              We offer a wide range of services on help businesses organization.
-            </p>
+            <div>
+              <h1>About us</h1>
+              <p>
+                We offer a wide range of services on help businesses
+                organization.
+              </p>
+            </div>
             <div className="flex flex-col">
               <Link to="mailto:osamaelseify2@gmail.com">
                 something@gmail.com
@@ -67,14 +70,15 @@ export default function Footer() {
                 className="border py-2 text-white px-1 bg-[#1f212c] border-transparent text-sm focus:border-[#4848ff] border-r-0"
               />
               <button
+              type="submit"
                 className="text-3xl p-1 text-Dark bg-white"
-                aria-label="send"
+                aria-label="submit"
               >
                 <IoIosSend />
               </button>
             </div>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-4 !grid-cols-1 !col-span-1">
             <h1>Social</h1>
             <div className="grid grid-cols-3 gap-2">
               {social_imgs.map(({ img, icon }) => (
@@ -95,7 +99,7 @@ export default function Footer() {
         <span>i did this peice srash </span>
         <div className="flex gap-10 items-center [&>a]:flex [&>a]:items-center">
           {social_icons.map(({ icon, id }) => (
-            <button key={id}>{icon}</button>
+            <button aria-label="social icon" key={id}>{icon}</button>
           ))}
         </div>
       </FooterBottom>
@@ -107,14 +111,14 @@ const FooterContainer = tw.footer`
 container-layout
 text-white
 grid
-grid-ols-6
 grid-rows-3
 gap-12
 pb-10
 justify-center
 divide-y
 [&>div]:grid
-[&>div]:grid-cols-6
+[&>div]:lg:grid-cols-6
+[&>div]:grid-cols-2
 [&>div]:items-center
 [&_div]:justify-center
 [&_button]:underline

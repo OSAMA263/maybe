@@ -27,11 +27,18 @@ function RevealChild(props) {
 
   const { ref, inView } = useInView({
     threshold: offset ?? 1,
-    triggerOnce: false,
+    triggerOnce: true,
   });
 
   return (
-    <div className={`overflow-hidden pb-2 ${className}`} ref={ref}>
+    <div
+      className={`overflow-hidden pb-2 ${className} ${
+        scaleX || scaleY
+          ? "absolute w-full h-full z-10 !pb-0 !overflow-visible"
+          : ""
+      }`}
+      ref={ref}
+    >
       <motion.div
         style={{
           originX: scaleX && 0,
@@ -39,7 +46,9 @@ function RevealChild(props) {
           transformOrigin: scaleY ? "bottom" : scaleX ? "right" : "",
         }}
         {...animations}
-        className={childClass}
+        className={`${childClass} ${
+          scaleX || scaleY ? "absolute w-full h-full z-10" : ""
+        }`}
         custom={{ inView, scaleX, scaleY, ...rest }}
       >
         {children && cloneElement(children)}

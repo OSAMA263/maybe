@@ -42,8 +42,7 @@ export const TheTeamCards = () => {
               offset={0.6}
               scaleY
               noOpacity
-              childClass="absolute w-full h-full z-10 bg-white"
-              className="overflow-visible absolute h-full w-full z-10"
+              childClass="bg-white"
             >
               <div></div>
             </RevealElement>

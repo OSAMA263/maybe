@@ -4,13 +4,16 @@ import App from "./App.jsx";
 import "./index.scss";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
+import { HelmetProvider } from "react-helmet-async";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ChakraProvider disableGlobalStyle>
-        <App />
-      </ChakraProvider>
+      <HelmetProvider>
+        <ChakraProvider disableGlobalStyle>
+          <App />
+        </ChakraProvider>
+      </HelmetProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

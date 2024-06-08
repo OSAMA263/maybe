@@ -8,7 +8,10 @@ import RevealElement from "../../components/RevealElement";
 
 export default function About() {
   return (
-    <Layout>
+    <Layout
+      description="about Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, fugiat. Eos est harum ullam explicabo, illo consequatur repellat vero illum!"
+      title="Meditate - about us"
+    >
       <Hero />
       <History />
       <TwoSwipers />
@@ -50,13 +53,7 @@ const Hero = () => {
           </div>
           {/* big image with services*/}
           <div className="relative">
-            <RevealElement
-              className="absolute w-full h-full z-10 !pb-0"
-              childClass="absolute w-full h-full bg-white z-10"
-              scaleX
-              offset={0.4}
-              noOpacity
-            >
+            <RevealElement childClass="bg-white" scaleX offset={0.4} noOpacity>
               <div></div>
             </RevealElement>
             <RevealElement offset={0.4} scale noOpacity>
@@ -73,7 +70,7 @@ const Hero = () => {
       {/* services */}
       <ServicesWrapper id="services">
         {services.map(({ icon, title, text }) => (
-          <RevealElement key={title} x>
+          <RevealElement key={title} offset={0.4} x>
             <div className="space-y-6 2xl:p-20 p-6">
               <span>
                 <img src={icon} alt={title} />

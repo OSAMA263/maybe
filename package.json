@@ -1,6 +1,7 @@
 {
   "name": "maybe",
   "private": true,
+  "homepage": "https://osama263.github.io/maybe",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -15,6 +16,7 @@
     "react": "^18.2.0",
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
     "react-icons": "^5.2.1",
     "react-intersection-observer": "^9.10.2",
     "react-router": "^6.23.1",

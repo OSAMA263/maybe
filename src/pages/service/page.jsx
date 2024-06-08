@@ -13,7 +13,10 @@ import RevealElement from "../../components/RevealElement";
 
 export default function Service() {
   return (
-    <Layout>
+    <Layout
+      description="services Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, fugiat. Eos est harum ullam explicabo, illo consequatur repellat vero illum!"
+      title="Meditate - services"
+    >
       <div className="container-layout">
         <div className="flex max-lg:flex-col gap-10 justify-between">
           <SectionHeader
@@ -32,13 +35,7 @@ export default function Service() {
         </div>
       </div>
       <div className="relative">
-        <RevealElement
-          offset={0.2}
-          scaleY
-          noOpacity
-          className="absolute z-10 w-full h-full !pb-0"
-          childClass="absolute bg-white w-full h-full z-10"
-        >
+        <RevealElement offset={0.2} scaleY noOpacity childClass="bg-white">
           <div></div>
         </RevealElement>
         <RevealElement className="w-[80%] ms-auto" offset={0.2} scale noOpacity>
@@ -106,7 +103,7 @@ export const ServicesSection = ({ homePage }) => {
       <GridWrapper className={homePage && "md:!grid-cols-3 "}>
         {services.map(({ title, img }) => (
           <div className="space-y-4 p-6" key={title}>
-            <RevealElement y >
+            <RevealElement y>
               <img src={img} alt={title} />
               <h1 className="xl:text-4xl text-2xl">
                 <Link
