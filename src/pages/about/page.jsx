@@ -90,7 +90,7 @@ export function TwoSwipers() {
   return (
     <section id="swiper-images" className="bg-Sky py-28 space-y-40">
       <div className="container-layout">
-        <SwiperImages quoteImg="/quote1.png" array={swiper_data}>
+        <SwiperImages quoteImg="quote1.png" array={swiper_data}>
           <SwiperContainer></SwiperContainer>
         </SwiperImages>
       </div>

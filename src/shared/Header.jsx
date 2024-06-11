@@ -28,7 +28,7 @@ export default function Header() {
             className={`md:hidden ${isOpen ? "[&_img]:rotate-90" : "rotate-0"}`}
           >
             <img
-              src={isOpen ? "/logo-orange.svg" : "/logo-dark.svg"}
+              src={isOpen ? "logo-orange.svg" : "logo-dark.svg"}
               alt="logo dark"
             />
           </button>

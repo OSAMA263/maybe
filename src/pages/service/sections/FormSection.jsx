@@ -100,10 +100,10 @@ text-Gray
 `;
 
 const threeImgs = [
-  { img: "/service/support-image2.png", position: "z-[1]" },
+  { img: "service/support-image2.png", position: "z-[1]" },
   {
-    img: "/service/support-image1.png",
+    img: "service/support-image1.png",
     position: "-translate-y-1/2 -translate-x-1/2 z-[2]",
   },
-  { img: "/service/support-image3.png", position: "-translate-x-full z-[3]" },
+  { img: "service/support-image3.png", position: "-translate-x-full z-[3]" },
 ];

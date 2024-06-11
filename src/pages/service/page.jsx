@@ -45,7 +45,7 @@ export default function Service() {
       {/* her image */}
       {/* marquee */}
       <RevealElement y rotate={10}>
-        <AutoSlider array={Array(5).fill("/play-icon.png")} service />
+        <AutoSlider array={Array(5).fill("play-icon.png")} service />
       </RevealElement>
       {/* servicese */}
       <ServicesSection />
@@ -72,7 +72,7 @@ export default function Service() {
       </section>
       {/* swiper images reviews? */}
       <div className="container-layout">
-        <SwiperImages quoteImg={"/quote2.png"} array={swiper_data}>
+        <SwiperImages quoteImg={"quote2.png"} array={swiper_data}>
           <SwiperWrapper></SwiperWrapper>
         </SwiperImages>
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import OverlayHero from "./sections/OverlayHero";
 import { OrangeButton } from "../../components/Buttons";
 import { AutoSlider } from "../../components/Swipers";
@@ -17,36 +18,25 @@ import { motion } from "framer-motion";
 import { useMediaQuery } from "@chakra-ui/react";
 import RevealElement from "../../components/RevealElement";
 import { Helmet } from "react-helmet-async";
+import TextAnimation from "./sections/TextAnimation";
 
 export default function Home() {
   const [SM_DEVICE] = useMediaQuery("(max-width: 1024px)");
-  const ref = useRef();
+
+  const textRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["0 1", "1 .8"],
+    target: textRef,
+    offset: [".10 1", ".2 0"],
   });
-  const y = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [SM_DEVICE ? "0%" : "69%", "0%"]
-  );
 
   return (
     <div className="space-y-40">
       <OverlayHero sm_device={SM_DEVICE} />
       {/* text animation scroll section */}
-      <div className="bg-Sky space-y-20 py-20">
+      <div ref={textRef} className="bg-Sky space-y-20 py-20">
         <div className="container-layout grid lg:grid-cols-2 gap-16">
-          {/* text animtion */}
-          <RevealElement y>
-            <p className="lg:text-3xl sm:text-xl">
-              We believe in power individual contribution the fire at the heart
-              web we back the founder of new form network digital analytics that
-              harness the talent individual for benefit of the collective
-              togethers we're shap world where ownership collaboration
-              innovation thrive beyond traditional boundaries.
-            </p>
-          </RevealElement>
+          {/* text animtion on scroll */}
+          <TextAnimation scrollYProgress={scrollYProgress} />
           <div className="space-y-10 w-1/2">
             <RevealElement y>
               <h1 className="sm:text-4xl">We Know what were doing</h1>
@@ -68,27 +58,8 @@ export default function Home() {
             </RevealElement>
           </div>
         </div>
-        <div
-          ref={ref}
-          className="grid lg:grid-cols-2 justify-items-end gap-10 items-start"
-        >
-          {/* moving image on scroll */}
-          <motion.img
-            className="max-lg:hidden"
-            src="home/img-left.png"
-            style={{ y }}
-            alt="hero img"
-            title="hero img"
-          />
-          <div className="relative">
-            <RevealElement noOpacity scaleY offset={0.4} childClass="bg-Sky">
-              <div></div>
-            </RevealElement>
-            <RevealElement noOpacity scale offset={0.3}>
-              <img src="home/img-right.png" alt="moving image on scorll" />
-            </RevealElement>
-          </div>
-        </div>
+        {/* moving imag on scorll */}
+        <ImageScrollAnimation SM_DEVICE={SM_DEVICE} />
         <AutoSlider array={autoslider_text} text />
       </div>
       {/* all sevices */}
@@ -206,125 +177,38 @@ const Awards = () => {
   );
 };
 
-// const TextAnimation = () => {
-//   const text =
-//     "We believe in power individual contribution the fire at the heart web we back the the fire at the heart web we back the founder of new form network digital founder of new form network digital analytics that harness the talent individual analytics that harness the talent individual for benefit of the collective togethers we're shap world where ownership collaboration innovation thrive beyond traditional boundaries.";
-
-//   const arr = text.split(" ");
-
-//   return (
-//     <div className="relative text-4xl">
-//       <div className="absolute top-0">
-//         {arr.map((word, i) => (
-//           <motion.span
-//             className="!text-Gray inline-block relative"
-//             key={"word" + i}
-//           >
-//             <motion.span
-//               className="text-Dark inline-block w-5 absolute"
-//               key={"word" + i}
-//             >
-//               <span>
-//                 {word}
-//                 {"\u00A0"}
-//               </span>
-//             </motion.span>
-//             <span className="!text-gray-400">
-//               {word}
-//               {"\u00A0"}
-//             </span>
-//           </motion.span>
-//         ))}
-//       </div>{" "}
-//       <p className="opacity-">{text}</p>
-//     </div>
-//   );
-// };
-// offset =1.5%
-// total =65
-
-// const  array= [
-//   import tw from "tailwind-styled-components";
-// import OverlayHero from "./sections/OverlayHero";
-// import { OrangeButton } from "../../components/Buttons";
-// import { AutoSlider } from "../../components/Swipers";
-// import { motion } from "framer-motion";
-
-// export default function Home() {
-//   return (
-//     <div className="space-y-40">
-//       <OverlayHero />
-//       {/* text animation scroll section */}
-//       <div className="bg-Sky space-y-20 py-20">
-//         <div className="container-layout grid grid-cols-2">
-//           {/* text animtion */}
-//           <div></div>
-//           <div className="w-1/2 ms-auto space-y-10">
-//             <h1>We Know what were doing</h1>
-//             <p>
-//               <small>
-//                 We have spent 31+ years of servicing consulting & advising
-//                 solutions and learned what makes great businesses stay in
-//                 business.
-//               </small>
-//             </p>
-//           </div>
-//         </div>
-//         <div className="grid grid-cols-2 container-layout">
-//           <div className="grid grid-cols-2">
-//             <OrangeButton to="/contact" tag="a" text="Join the community" />
-//             <OrangeButton to="/about" tag="a" text="Learn more about us" />
-//           </div>
-//         </div>
-
-//         <div className="space-y-10 container-layout">
-//           <TextAnimation />
-//         </div>
-//         <div className="flex items-start gap-20 justify-end">
-//           <img src="/home/img-left.png" alt="moving image on scorll" />
-//           <img src="/home/img-right.png" alt="hero img" />
-//         </div>
-//         <AutoSlider array={array} text />
-//       </div>
-//     </div>
-//   );
-// }
-// const array = [
-//   "Consulting",
-//   "Data Analysis",
-//   "Marketing",
-//   "Accounting",
-//   "Contributor",
-// ];
-// const TextAnimation = () => {
-//   const text = [
-//     "We believe in power individual contribution",
-//     "the fire at the heart web we back the",
-//     "founder of new form network digital",
-//     "analytics that harness the talent individual",
-//     "for benefit of the collective togethers we're",
-//     "shap world where ownership collaboration",
-//     "innovation thrive beyond traditional",
-//     "boundaries.",
-//   ];
-
-//   return (
-//     <div className="relative font-semibold text-4xl">
-//          <div className="relative">
-//         {text.map((par, i) => (
-//           <p className="relative" key={i}>
-//             <p className="absolute top-0 text-Dark w-10" key={i}>
-//               {par}
-//             </p>
-//             <p>{par}</p>
-//           </p>
-//         ))}
-//       </div>
-//       {/* <p className="opacity">{text}</p> */}
-//     </div>
-//   );
-// };
-// // offset =1.5%
-// // total =65
-
-// ]
+const ImageScrollAnimation = ({ SM_DEVICE }) => {
+  const imgRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: imgRef,
+    offset: ["0 1", "1 .8"],
+  });
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [SM_DEVICE ? "0%" : "69%", "0%"]
+  );
+  return (
+    <div
+      ref={imgRef}
+      className="grid lg:grid-cols-2 justify-items-end gap-10 items-start"
+    >
+      {/* moving image on scroll */}
+      <motion.img
+        className="max-lg:hidden"
+        src="home/img-left.png"
+        style={{ y }}
+        alt="hero img"
+        title="hero img"
+      />
+      <div className="relative">
+        <RevealElement noOpacity scaleY offset={0.4} childClass="bg-Sky">
+          <div></div>
+        </RevealElement>
+        <RevealElement noOpacity scale offset={0.3}>
+          <img src="home/img-right.png" alt="moving image on scorll" />
+        </RevealElement>
+      </div>
+    </div>
+  );
+};

@@ -159,10 +159,10 @@ const social_icons = [
 ];
 
 const social_imgs = [
-  { img: "/footer/social-img1.png", icon: <FaGithub /> },
-  { img: "/footer/social-img2.png", icon: <FaFacebookF /> },
-  { img: "/footer/social-img3.png", icon: <FaXTwitter /> },
-  { img: "/footer/social-img4.png", icon: <FaFacebookF /> },
-  { img: "/footer/social-img5.png", icon: <FaGithub /> },
-  { img: "/footer/social-img6.png", icon: <FaLinkedinIn /> },
+  { img: "footer/social-img1.png", icon: <FaGithub /> },
+  { img: "footer/social-img2.png", icon: <FaFacebookF /> },
+  { img: "footer/social-img3.png", icon: <FaXTwitter /> },
+  { img: "footer/social-img4.png", icon: <FaFacebookF /> },
+  { img: "footer/social-img5.png", icon: <FaGithub /> },
+  { img: "footer/social-img6.png", icon: <FaLinkedinIn /> },
 ];

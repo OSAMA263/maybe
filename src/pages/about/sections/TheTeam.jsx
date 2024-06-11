@@ -47,7 +47,7 @@ export const TheTeamCards = () => {
               <div></div>
             </RevealElement>
             <RevealElement offset={0.6} scale noOpacity>
-              <img {img} alt={name} />
+              <img src={img} alt={name} />
             </RevealElement>
 
             {/* Slideing name & shit on hover*/}
