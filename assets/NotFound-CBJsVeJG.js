@@ -1,0 +1,1 @@
+import{j as e}from"./index-C41_z-20.js";function r(){return e.jsx("div",{className:"h-dvh w-full flex items-center justify-center",children:"no page was found with the url you enrted bruv :()"})}export{r as default};
