@@ -34,7 +34,7 @@ export default function Home() {
       <OverlayHero sm_device={SM_DEVICE} />
       {/* text animation scroll section */}
       <div ref={textRef} className="bg-Sky space-y-20 py-20">
-        <div className="container-layout grid lg:grid-cols-2 gap-16">
+        <div className="container-layout grid gap-16">
           {/* text animtion on scroll */}
           <TextAnimation scrollYProgress={scrollYProgress} />
           <div className="space-y-10 w-1/2">

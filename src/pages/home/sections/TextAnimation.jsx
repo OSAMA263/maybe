@@ -19,7 +19,7 @@ export default function TextAnimation({ scrollYProgress }) {
   ];
 
   return (
-    <div className="relative font-semibold text-4xl">
+    <div className="relative font-semibold xl:text-4xl tex-2xl">
       <div className="relative">
         {text.map((line, i) => (
           <SingleLine key={i} {...{ line, scrollYProgress }} />
@@ -30,15 +30,15 @@ export default function TextAnimation({ scrollYProgress }) {
 }
 const SingleLine = ({ scrollYProgress, line }) => {
   const { text, value } = line;
-  const width = useTransform(scrollYProgress, value, ["0%","100%"]);
+  const width = useTransform(scrollYProgress, value, ["0%", "100%"]);
 
   return (
     <div className="relative max-w-fit">
       <motion.div
         style={{ width }}
-        className="absolute top-0 overflow-hidden [&>p]:text-Dark transition-all duration-700 "
+        className="absolute max-sm:hidden top-0 overflow-hidden [&>p]:text-Dark transition-all duration-700 "
       >
-        <motion.p className="h-full w-full min-w-max">{text}</motion.p>
+        <motion.p className="h-full w-full sm:min-w-max">{text}</motion.p>
       </motion.div>
       <p className="max-w-fit">{text}</p>
     </div>
