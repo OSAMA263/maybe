@@ -86,7 +86,7 @@ export const ServicesSection = ({ homePage }) => {
   return (
     <section
       className={`grid lg:grid-cols-2 gap-10 relative container-layout ${
-        homePage && "!grid-cols-1 !gap-40"
+        homePage && "!grid-cols-1 sm:!gap-40 gap-10"
       }`}
       id="the-services"
     >
@@ -129,10 +129,11 @@ export const ServicesSection = ({ homePage }) => {
 
 const GridWrapper = tw.div`
 grid
-grid-cols-2
+sm:grid-cols-2
 xl:gap-x-12
 sm:gap-x-4
-gap-y-28
+sm:gap-y-28
+gap-y-5
 text-pretty
 `;
 

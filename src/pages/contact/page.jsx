@@ -21,7 +21,7 @@ export default function Contact() {
       {/* contact info */}
       <div className="md:space-y-20 space-y-10">
         <RevealElement y className="!pb-0">
-          <h1 className="xl:text-7xl text-5xl flex flex-col">
+          <h1 className="xl:text-7xl sm:text-5xl text-3xl flex flex-col">
             <span>Let’s Work</span>
             <span className="flex items-center gap-4">
               <small className="h-1 w-[20%] bg-Dark"></small>

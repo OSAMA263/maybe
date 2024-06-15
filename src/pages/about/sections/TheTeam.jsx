@@ -7,7 +7,7 @@ import RevealElement from "../../../components/RevealElement";
 
 export default function TheTeam() {
   return (
-    <section className="space-y-20 container-layout" id="the-team">
+    <section className="sm:space-y-20 space-y-10 container-layout" id="the-team">
       <SectionHeader
         title="Testimonial"
         header="Meet our amazing team"

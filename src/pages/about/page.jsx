@@ -26,13 +26,13 @@ const Hero = () => {
       <div className="flex justify-between">
         <div className="flex flex-col gap-20">
           {/* header text */}
-          <div className="container-layout space-y-20">
-            <div className="w-max space-y-4">
+          <div className="container-layout sm:space-y-20 space-y-4">
+            <div className="sm:w-max space-y-4">
               <RevealElement y className="overflow-visible">
                 <h2 className="xl:text-7xl sm:text-4xl text-2xl font-thin text-Gray">
                   We’re something business
                 </h2>
-                <h1 className="xl:text-8xl md:text-6xl text-5xl">
+                <h1 className="xl:text-8xl md:text-6xl sm:text-5xl text-3xl">
                   Consultancy agency
                 </h1>
               </RevealElement>
@@ -113,7 +113,7 @@ w-full
 bg-Sky
 grid
 lg:grid-cols-4
-grid-cols-2
+sm:grid-cols-2
 divide-x
 justify-between
 `;

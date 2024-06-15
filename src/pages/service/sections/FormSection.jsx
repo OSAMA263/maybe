@@ -7,7 +7,7 @@ export default function FormSection() {
   return (
     <section id="form" className="py-20 bg-Sky">
       <div className="container-layout space-y-20">
-        <h1 className="xl:text-8xl text-6xl text-center">Get Support?</h1>
+        <h1 className="xl:text-8xl sm:text-6xl text-4xl text-center">Get Support?</h1>
         <div className="grid lg:grid-cols-2 items-center">
           {/* three images */}
           <div className="max-lg:hidden flex h-fit">

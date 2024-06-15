@@ -33,10 +33,10 @@ const SingleLine = ({ scrollYProgress, line }) => {
   const width = useTransform(scrollYProgress, value, ["0%", "100%"]);
 
   return (
-    <div className="relative max-w-fit">
+    <div className="relative overflow-hidden max-w-fit">
       <motion.div
         style={{ width }}
-        className="absolute max-sm:hidden top-0 overflow-hidden [&>p]:text-Dark transition-all duration-700 "
+        className="absolute top-0 overflow-hidden [&>p]:text-Dark transition-all duration-700 "
       >
         <motion.p className="h-full w-full sm:min-w-max">{text}</motion.p>
       </motion.div>

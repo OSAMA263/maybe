@@ -37,7 +37,7 @@ export default function Home() {
         <div className="container-layout grid gap-16">
           {/* text animtion on scroll */}
           <TextAnimation scrollYProgress={scrollYProgress} />
-          <div className="space-y-10 w-1/2">
+          <div className="space-y-10 sm:w-1/2">
             <RevealElement y>
               <h1 className="sm:text-4xl">We Know what were doing</h1>
               <p>
@@ -51,7 +51,7 @@ export default function Home() {
           </div>
         </div>
         <div className="grid lg:grid-cols-2 container-layout">
-          <div className="grid grid-cols-2">
+          <div className="grid sm:grid-cols-2">
             <RevealElement y>
               <OrangeButton to="/contact" tag="a" text="Join the community" />
               <OrangeButton to="/about" tag="a" text="Learn more about us" />
@@ -156,7 +156,7 @@ const Awards = () => {
   return (
     <div className="divide-y divide-Gray">
       {awards_data.map(({ title, img }, i) => (
-        <div className="py-10 flex items-start gap-32" key={i}>
+        <div className="py-10 flex items-start sm:gap-32 gap-16" key={i}>
           <RevealElement y className="overflow-visible">
             <div className="flex gap-6 font-semibold">
               <small>/0{i + 1}</small>

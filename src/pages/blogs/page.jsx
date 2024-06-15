@@ -14,7 +14,7 @@ export default function Blogs() {
       title="Meditate - blogs"
       className="container-layout"
     >
-      <div className="relative grid xl:grid-cols-2 xl:gap-4 gap-20">
+      <div className="relative grid xl:grid-cols-2 xl:gap-4 sm:gap-20">
         <SectionHeader
           className="xl:sticky top-10 h-fit !w-[100%]"
           title="Something news"
@@ -51,7 +51,7 @@ export const BlogCard = (props) => {
         </RevealElement>
       </div>
       {/* card details */}
-      <div className="flex 2xl:col-span-2 flex-col xl:gap-6 gap-10 xl:justify-around py-8 md:px-4 ps-2">
+      <div className="flex 2xl:col-span-2 flex-col xl:gap-6 sm:gap-10 gap-4 xl:justify-around py-8 md:px-4 ps-2">
         <CategoryAndDate {...rest} />
         <Link
           to={`/blogs/${i + 1}`}
@@ -89,7 +89,7 @@ export const CategoryAndDate = ({ category, date }) => {
 const CardContainer = tw.div`
 grid
 2xl:grid-cols-3
-grid-cols-2
+sm:grid-cols-2
 2xl:gap-10
 border
 rounded-md

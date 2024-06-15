@@ -53,7 +53,7 @@ export default function History() {
       </div>
       <div className="grid xl:grid-cols-2">
         <div></div>
-        <div className="flex justify-between">
+        <div className="flex flex-wrap justify-center gap-10">
           {numbersData.map((data) => (
             <CountUpNumber {...data} key={data.number} />
           ))}

@@ -18,9 +18,10 @@ export default function Layout(props) {
 // "https://osama263.github.io/constructs/#/about-------- href
 const Container = tw.div`
 sm:pt-44
-pt-40
+pt-32
 pb-28
 lg:space-y-40
 sm:space-y-20
 space-y-10
+overflow-x-hidden
 `;
